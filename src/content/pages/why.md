@@ -1,23 +1,17 @@
 ---
 _schema: default
-title: Why
-description: Learn why this Astro component starter was built and how it helps teams create fast, flexible static sites.
+title: ¿Por qué nosotros?
+description: Descubre por qué Avantia es tu mejor opción para capacitarte y ganar licitaciones con el Estado.
 pageSections:
   - _component: page-sections/heroes/hero-split
-    eyebrow:
-    heading: Why build an Astro component starter?
+    eyebrow: Nuestra Filosofía
+    heading: ¿Por qué elegir a Avantia para tu formación?
     subtext: >-
-      At CloudCannon, we're big fans of the static web. And we love what the
-      Astro team is building!
-
-
-      As more and more <a href="https://cloudcannon.com/partner-program/"
-      target="_blank" rel="noopener">partner agencies</a> are building client
-      sites with CloudCannon, we wanted to help out by providing the foundations
-      for Astro components that output static HTML and CSS, for the fastest
-      delivery possible —&nbsp;all unbranded and adaptable for any project.
+      Entendemos lo complejo que puede parecer el mundo de las compras públicas. 
+      Por eso, en Avantia eliminamos la jerga técnica y legal para darte un método paso a paso claro, práctico y directo para que empieces a licitar con éxito.
+      Creemos en la democratización del acceso a las compras públicas para que más empresas y profesionales puedan convertirse en proveedores del Estado.
     imageSource: /src/assets/images/component-docs/sunset.jpg
-    imageAlt: Sunset
+    imageAlt: Formación en Licitaciones
     imageAspectRatio: portrait
     buttonSections: []
     reverse: true
@@ -25,44 +19,29 @@ pageSections:
     backgroundColor: base
     paddingVertical: 4xl
   - _component: page-sections/info-blocks/faq-section
-    heading: Frequently asked questions
+    heading: Preguntas Frecuentes
     headingLevel: h2
     headingSize: lg
     singleOpen: true
     openFirst: false
     items:
-      - title: How does the Component Starter work?
+      - title: ¿Cómo funciona la metodología de Avantia?
         contentSections:
           - _component: building-blocks/core-elements/text
             text: >-
-              We give you [straightforward building blocks](/component-docs/)
-              without hiding anything behind layers of abstraction. You see
-              everything that's happening, and stay in control.
+              Te damos acceso a una plataforma digital interactiva con clases cortas y directas al grano, acompañada de sesiones grupales en vivo semanales y plantillas descargables listas para usar.
             size: md
-      - title: What's included in the Component Starter?
+      - title: ¿Qué experiencia tienen los docentes?
         contentSections:
           - _component: building-blocks/core-elements/text
             text: >-
-              Lean HTML, CSS, and small touches of vanilla JavaScript. No dead
-              weight, no surprise dependencies, just the pieces you actually
-              need to build great pages.
+              Todos nuestros instructores son consultores activos en contratación estatal, con experiencia acumulada de más de 15 años y millones de dólares adjudicados en licitaciones reales.
             size: md
-      - title: How is the Component Starter so fast?
+      - title: ¿Necesito tener una empresa constituida para tomar el curso?
         contentSections:
           - _component: building-blocks/core-elements/text
             text: >-
-              Performance comes from keeping things lightweight. The framework
-              handles image optimization and responsive patterns so your site
-              stays quick without extra work.
-            size: md
-      - title: Can I customize the Component Starter?
-        contentSections:
-          - _component: building-blocks/core-elements/text
-            text: >-
-              Every part of the Component Starter is meant to be opened, read,
-              and edited. You shape it to fit your project instead of working
-              around someone else's opinions. Start by [browsing the
-              components](/component-docs/) to see how they're set up!
+              No. Muchos de nuestros estudiantes son profesionales independientes, contadores o ingenieros que buscan ofrecer servicios de consultoría en licitaciones a otras empresas.
             size: md
     maxContentWidth: xl
     paddingHorizontal: xl
@@ -75,7 +54,7 @@ pageSections:
       - _component: building-blocks/core-elements/spacer
         size: md
       - _component: building-blocks/core-elements/heading
-        text: Mix and match your components
+        text: Metodología probada de 4 fases
         level: h2
         size: default
         alignmentHorizontal: center
@@ -83,8 +62,7 @@ pageSections:
         iconPosition: before
       - _component: building-blocks/core-elements/text
         text: >-
-          With custom sections, you can create components for almost any use
-          case.
+          Guiamos tu aprendizaje a través del ciclo completo de una licitación para asegurar tu éxito.
         alignmentHorizontal: center
         size: md
     maxContentWidth: 2xl
@@ -95,57 +73,41 @@ pageSections:
     rounded: false
   - _component: page-sections/features/feature-slider
     slides:
-      - eyebrow: First slide demonstration
-        title: Welcome to the carousel component
+      - eyebrow: Fase 1
+        title: Búsqueda y Filtrado Inteligente
         description: >-
-          This initial slide introduces visitors to the rotating content
-          display. You'll notice how the text hierarchy works with the eyebrow,
-          headline, and body copy creating clear visual distinction. The
-          component is designed to guide users through multiple messages without
-          overwhelming the page.
+          Aprende a buscar y filtrar de manera inteligente los procesos en las plataformas del Estado. Ahorra tiempo descartando pliegos mal estructurados o con pocas probabilidades de éxito.
         imageSource: /src/assets/images/component-docs/quiet-street.jpg
-        imageAlt: High Performance
-      - eyebrow: Content transition example
-        title: Seamless navigation between slides
+        imageAlt: Búsqueda Inteligente
+      - eyebrow: Fase 2
+        title: Análisis Crítico de Pliegos
         description: >-
-          As you move to the second position, observe how the previous content
-          gracefully exits while this new information appears. The navigation
-          controls below allow users to move at their own pace. This slide
-          exists purely to demonstrate the component's ability to handle
-          sequential content delivery.
+          Descubre cómo leer e interpretar la letra chica de los pliegos de condiciones. Identifica requisitos obligatorios, técnicos, habilitantes y los criterios de ponderación clave.
         imageSource: /src/assets/images/component-docs/sheep.jpg
-        imageAlt: Easy Maintenance
-      - eyebrow: Third position showcase
-        title: Maintaining consistent formatting
+        imageAlt: Análisis de Pliegos
+      - eyebrow: Fase 3
+        title: Estructuración Profesional de la Oferta
         description: >-
-          By the third slide, the pattern becomes clear. Each rotation maintains
-          the same structural hierarchy and spacing, ensuring visual coherence
-          throughout the carousel. This consistency helps users understand what
-          to expect as they progress through the available content.
+          Prepara los documentos técnicos, económicos y jurídicos sin cometer los errores formales más comunes que causan la descalificación inmediata de los proponentes.
         imageSource: /src/assets/images/component-docs/castle.jpg
-        imageAlt: Move Faster
-      - eyebrow: Final slide
-        title: Completing the carousel loop
+        imageAlt: Estructuración de Oferta
+      - eyebrow: Fase 4
+        title: Gestión y Defensa del Proceso
         description: >-
-          This fourth and final slide demonstrates how the component handles the
-          end of its sequence. Users can either cycle back to the beginning or
-          pause here to absorb the information. The carousel has now
-          successfully shown its capacity to present multiple content blocks in
-          a compact, navigable format.
+          Aprende cómo responder a observaciones de los competidores, subsanar documentos y realizar el seguimiento post-cierre hasta la audiencia de adjudicación.
         imageSource: /src/assets/images/component-docs/dunedin-cliff.jpg
-        imageAlt: Long-Term Stability
+        imageAlt: Gestión del Proceso
     colorScheme: dark
     backgroundColor: surface
-    eyebrow: Why Carousel
-    heading: Why this approach works
-    subtext: Highlight the core reasons in a simple, swipeable format.
+    eyebrow: Proceso Formativo
+    heading: El camino hacia tu primera licitación
+    subtext: Te enseñamos el paso a paso exacto que utilizan los profesionales.
     paddingVertical: 4xl
   - _component: page-sections/people/testimonial-section
     text: >-
-      This testimonial component has completely changed the way I present my
-      quotations on Astro sites. I couldn't be happier with the results.
-    authorName: John Convincingname
-    authorDescription: Founder
+      "El acompañamiento técnico y la claridad con la que explican cada módulo hicieron que dejáramos de tenerle miedo al portal de compras públicas. Este año ya duplicamos nuestras ventas gracias al Estado."
+    authorName: Patricia Gómez
+    authorDescription: Directora Comercial, LogiTrans S.A.S.
     authorImage: /src/assets/images/component-docs/profile.jpg
     alignmentHorizontal: center
     maxContentWidth: xl
@@ -154,80 +116,60 @@ pageSections:
     colorScheme: dark
     backgroundColor: surface
   - _component: page-sections/people/team-grid
-    eyebrow: Our Team
-    heading: Meet the people
-    subtext: We're a group of stock photography faces that fill out this team grid.
+    eyebrow: Nuestro Equipo
+    heading: Conoce a tus instructores
+    subtext: Profesionales en activo que te acompañarán en cada paso del proceso de licitación.
     teamMembers:
-      - name: Alex Smith
-        role: Lead Developer
+      - name: Alejandro Silva
+        role: Director Académico
         bio: >-
-          As a fictional representation of a real employee, I exist solely to
-          demonstrate how profile information appears in this layout. My
-          headshot is perfectly lit, and my description maintains the ideal
-          length for this component.
+          Consultor especialista en derecho administrativo con más de 12 años asesorando a pymes en procesos de contratación con entidades nacionales y regionales.
         imageSource: /src/assets/images/component-docs/profile1.jpg
-        imageAlt: Alex Smith, CEO
-      - name: Tom Rodriguez
-        role: Chief Technology Officer
+        imageAlt: Alejandro Silva
+      - name: Tomás Rodríguez
+        role: Instructor Principal
         bio: >-
-          I'm here to show how multiple team members look when displayed
-          together. My expertise includes being professionally photographed and
-          having exactly two sentences of biographical text.
+          Especialista en estructuración de ofertas técnicas y económicas de gran envergadura. Consultor activo para el sector de obras y tecnología.
         imageSource: /src/assets/images/component-docs/profile2.jpg
-        imageAlt: Tom Rodriguez, CTO
-      - name: Helen Kim
-        role: Head of Design
+        imageAlt: Tomás Rodríguez
+      - name: Elena Rincón
+        role: Especialista en Plataformas
         bio: >-
-          I demonstrate how the component handles a third profile entry. My
-          carefully crafted placeholder text ensures the layout remains
-          consistent, regardless of whether you're viewing on a tablet or
-          desktop display.
+          Experta técnica en la parametrización, registro de proponentes y carga de ofertas electrónicas en los principales portales de compras públicas del continente.
         imageSource: /src/assets/images/component-docs/profile3.jpg
-        imageAlt: Helen Kim, Head of Design
-      - name: Emily Watson
-        role: Director of Operations
-        bio: >-
-          I round out the team grid to demonstrate how the layout adapts to a
-          fourth member. My presence here confirms that the component scales
-          appropriately, maintaining visual balance across different screen
-          sizes.
-        imageSource: /src/assets/images/component-docs/profile4.jpg
-        imageAlt: Emily Watson, Director of Operations
+        imageAlt: Elena Rincón
     colorScheme: dark
     backgroundColor: surface
     paddingVertical: 2xl
   - _component: page-sections/ctas/cta-form
-    heading: Form and function!
+    heading: Comienza tu camino hacia el éxito hoy mismo
     subtext: >-
-      This is a sample form component, so it's not wired up with a target inbox
-      yet, but it's all ready to <a
-      href="https://cloudcannon.com/documentation/articles/getting-started-with-forms-on-cloudcannon/"
-      target="_blank" rel="noopener">configure with CloudCannon forms</a>.
+      ¿Tienes dudas adicionales sobre nuestro programa? Escríbenos y un experto te orientará sin costo alguno.
     formAction: ./
     formBlocks:
       - _component: building-blocks/forms/input
-        label: Name
-        name: name
+        label: Nombre Completo
+        name: nombre
         type: text
         required: true
       - _component: building-blocks/forms/input
-        label: Email
+        label: Correo Electrónico
         name: email
         type: email
         required: true
       - _component: building-blocks/forms/textarea
-        label: Message
-        name: message
+        label: ¿Cuál es tu principal duda?
+        name: mensaje
         required: true
       - _component: building-blocks/forms/submit
-        text: Send message
+        text: Solicitar Asesoría
         variant: primary
         size: md
         iconPosition: before
         hideText: false
         disabled: false
     imageSource: /src/assets/images/component-docs/castle.jpg
-    imageAlt: Get in touch
+    imageAlt: Contáctanos
     reverse: false
     colorScheme: dark
     backgroundColor: surface

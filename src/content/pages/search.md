@@ -1,14 +1,14 @@
 ---
 _schema: default
-title: Search
+title: Buscar
 description: >-
-  Static Pagefind search across pages and posts—filter by type, author, and tag with no backend.
+  Búsqueda rápida en todo el sitio de la academia para encontrar artículos, cursos y guías.
 pageSections:
   - _component: page-sections/heroes/hero-center
     eyebrow:
-    heading: Search
+    heading: Buscar en Avantia
     subtext: >-
-      Everything on your site is just one search away. (Free static search courtesy of [Pagefind](https://pagefind.app/) 💙)
+      Encuentra guías, artículos y respuestas a tus dudas sobre contratación estatal en nuestro buscador optimizado.
     buttonSections: []
     colorScheme: inherit
     backgroundColor: base

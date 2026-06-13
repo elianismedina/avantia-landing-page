@@ -1,8 +1,8 @@
 {
   "_schema": "seo",
-  "name": "Astro Component Starter",
-  "url": "https://example.com",
-  "description": "Build fast, customizable Astro sites with a modern component starter that is easy to edit and maintain.",
+  "name": "Avantia Academia",
+  "url": "https://avantia.edu.co",
+  "description": "Aprende a venderle al Estado. Cursos prácticos y consultoría en contratación pública y licitaciones estatales en Hispanoamérica.",
   "logoSource": "/src/assets/images/component-docs/acs-logo.svg",
-  "titleFormat": "{title} | Astro Component Starter"
+  "titleFormat": "{title} | Avantia Academia"
 }

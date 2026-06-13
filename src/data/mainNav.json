@@ -1,22 +1,22 @@
 {
   "logoSource": "/src/assets/images/component-docs/acs-logo.svg",
   "logoAlternateSource": "/src/assets/images/component-docs/acs-logo-dark.svg",
-  "logoAlt": "Astro Component Starter",
+  "logoAlt": "Avantia Academia",
   "themeToggle": true,
   "navData": [
     {
-      "name": "Home",
+      "name": "Inicio",
       "path": "/",
       "children": []
     },
     {
-      "name": "Why",
-      "path": "/why/",
+      "name": "Cursos",
+      "path": "/cursos/",
       "children": []
     },
     {
-      "name": "Components",
-      "path": "/component-docs/",
+      "name": "¿Por qué nosotros?",
+      "path": "/why/",
       "children": []
     },
     {
@@ -28,7 +28,7 @@
   "buttonSections": [
     {
       "_component": "building-blocks/core-elements/button",
-      "text": "Search",
+      "text": "Buscar",
       "hideText": true,
       "link": "/search/",
       "iconName": "magnifying-glass",

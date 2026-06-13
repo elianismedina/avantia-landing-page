@@ -1,162 +1,177 @@
 ---
 _schema: default
-title: Home
+title: Inicio
 description: >-
-  Astro Component Starter: fast, visually editable components for Astro and CloudCannon—docs,
-  blog, and patterns for shipping real sites.
+  Domina las licitaciones públicas y vende al Estado de forma exitosa. Cursos de contratación pública prácticos con expertos activos.
 pageSections:
-  - _component: page-sections/heroes/hero-center
-    eyebrow:
-    heading: The Astro Component Starter for building any site
+  - _component: page-sections/heroes/hero-split
+    eyebrow: Academia de Contratación Estatal
+    heading: Domina las licitaciones públicas y haz crecer tu negocio
     subtext: >-
-      Built on web fundamentals. Easy to customize, fast to use, and simple to
-      maintain.
+      Capacitación 100% práctica para venderle al cliente más grande de tu país: el Estado.
+      Aprende a identificar oportunidades reales, estructurar ofertas ganadoras y evitar errores costosos.
+    imageSource: /src/assets/images/component-docs/website-hero.svg
+    imageAlt: Licitaciones exitosas con Avantia
+    imageAspectRatio: square
     buttonSections:
       - _component: building-blocks/core-elements/button
-        text: Explore Components
+        text: Explorar Cursos
         hideText: false
-        link: /component-docs/
+        link: '#cursos'
         iconName: ''
         iconPosition: before
         variant: primary
-        size: md
+        size: lg
       - _component: building-blocks/core-elements/button
-        text: View in GitHub
+        text: Asesoría Gratuita
         hideText: false
-        link: https://github.com/CloudCannon/astro-component-starter
+        link: '#contacto'
         iconName: ''
         iconPosition: before
         variant: secondary
-        size: md
-    colorScheme: inherit
-    backgroundColor: base
-  - _component: page-sections/features/feature-split
-    eyebrow: Built for Astro
-    heading: Fast, modern, and easy to work with
-    subtext: >-
-      The Component Starter takes full advantage of Astro's zero-JS-by-default
-      approach. You get fast pages, simple routing, and a component system that
-      stays easy to use as your site grows.
-    buttonSections: []
-    imageSource: /src/assets/images/component-docs/website-feature.svg
-    imageAlt: Website Feature
-    imageAspectRatio: none
-    imageRounded: false
+        size: lg
     reverse: false
     colorScheme: inherit
     backgroundColor: base
-  - _component: page-sections/features/feature-split
-    eyebrow: CloudCannon Ready
-    heading: Easy visual editing
-    subtext: >-
-      Every component is built to work seamlessly in CloudCannon's Visual
-      Editor. Developers can create and style custom Page Sections with Astro.
-      Editors can click, change, and rearrange content right on the page without
-      touching the code or guessing where anything lives.
-    buttonSections: []
-    imageSource: /src/assets/images/component-docs/website-split.svg
-    imageAlt: Website Split
-    imageAspectRatio: none
-    imageRounded: false
-    reverse: true
-    colorScheme: inherit
-    backgroundColor:
-    paddingVertical: lg
-  - _component: page-sections/features/feature-split
-    eyebrow: Performance
-    heading: Fast by architecture, not by accident
-    subtext: >-
-      Your components render to static HTML, keeping bundles lean and pages
-      instant. Your users get instant page loads. You get a modern developer
-      experience.
-    buttonSections: []
-    imageSource: /src/assets/images/component-docs/website-hero.svg
-    imageAlt: Website Hero
-    imageAspectRatio: none
-    imageRounded: false
-    reverse: false
-    colorScheme: inherit
-    backgroundColor: base
-  - _component: page-sections/features/feature-split
-    eyebrow: Documentation
-    heading: Every component, clearly documented
-    subtext: >-
-      Each component comes with straightforward docs, real examples, full
-      descriptions of every property, and clear guidance without having to dig
-      through source files.
-    buttonSections: []
-    imageSource: /src/assets/images/component-docs/website-documented.svg
-    imageAlt: Website Hero
-    imageAspectRatio: none
-    imageRounded: false
-    reverse: true
-    colorScheme: inherit
-    backgroundColor: base
+    paddingVertical: 4xl
   - _component: page-sections/features/feature-grid
-    eyebrow: Principles
-    heading: Built for real-world web projects
-    subtext: No trends. No noise. Just reliability.
+    eyebrow: Nuestra Metodología
+    heading: ¿Por qué capacitarte con Avantia?
+    subtext: Diseñamos nuestros programas pensando en los retos reales de las pymes y profesionales al licitar.
     gap: xl
     minItemWidth: 280
     maxItemWidth: 360
     features:
-      - title: Web fundamentals
+      - title: Enfoque 100% Práctico
         description: >-
-          Semantic HTML. Lean CSS. JavaScript only when it's needed. The stack
-          is boring by design, and that’s exactly why it works.
-        iconName: cube
+          Aprende con casos y pliegos reales. Te enseñamos a usar los portales oficiales de compras del Estado desde el primer día.
+        iconName: book-open
         iconColor: blue
-      - title: Built for speed
+      - title: Consultores en Activo
         description: >-
-          Static-rendered, minimal payloads, zero waste. Built to be extremely
-          fast from the first byte.
-        iconName: bolt
+          Tus profesores no son teóricos; son expertos que cada semana preparan y ganan licitaciones públicas para diversas industrias.
+        iconName: academic-cap
         iconColor: yellow
-      - title: Everything just fits
+      - title: Plantillas Descargables
         description: >-
-          Simple, predictable components that play nice together. Build bigger
-          pieces without creating a maintenance mess.
-        iconName: puzzle-piece
+          Accede a modelos de ofertas, cartas de presentación y listas de chequeo listas para usar en tus propias postulaciones.
+        iconName: document-duplicate
         iconColor: green
-      - title: Controlled editing
+      - title: Soporte y Comunidad
         description: >-
-          Enough freedom for editors to move fast. Enough structure for
-          developers to sleep at night.
-        iconName: pencil
+          Resuelve tus dudas puntuales sobre los pliegos que estés trabajando a través de nuestro foro exclusivo de estudiantes.
+        iconName: chat-bubble-left-right
         iconColor: purple
-      - title: Adaptable
-        description: >-
-          Purposefully plain styling. The whole component starter adapts to your
-          designs without a fight.
-        iconName: paint-brush
-        iconColor: pink
     colorScheme: inherit
     backgroundColor: surface
     alignmentHorizontal: center
-  - _component: page-sections/ctas/cta-center
-    heading: Ready to start building?
+  - _component: page-sections/features/feature-split
+    eyebrow: Programa Insignia
+    heading: Curso Experto en Contratación Pública y Licitaciones
     subtext: >-
-      Browse the complete Astro Component Starter and see live examples of every
-      component in action. All components are ready to use in CloudCannon and
-      are fully customizable.
+      El programa más completo diseñado para empresarios, directores comerciales y consultores. 
+      Descubre cómo funciona el sistema de compras estatales de principio a fin, cómo analizar pliegos de condiciones y cómo construir una oferta técnica y económica imbatible sin necesidad de ser abogado.
     buttonSections:
       - _component: building-blocks/core-elements/button
-        text: Explore Components
+        text: Ver Plan de Estudios
         hideText: false
-        link: /component-docs/
+        link: '/cursos/'
         iconName: ''
         iconPosition: before
         variant: primary
         size: md
-      - _component: building-blocks/core-elements/button
-        text: View in GitHub
-        hideText: false
-        link: https://github.com/CloudCannon/astro-component-starter
-        iconName: ''
-        iconPosition: before
-        variant: tertiary
-        size: md
+    imageSource: /src/assets/images/component-docs/website-feature.svg
+    imageAlt: Curso de Licitaciones de Avantia
+    imageAspectRatio: video
+    imageRounded: true
+    reverse: true
+    colorScheme: inherit
+    backgroundColor: base
+    paddingVertical: lg
+  - _component: page-sections/people/testimonial-section
+    text: >-
+      "Gracias a la metodología paso a paso de Avantia, logramos adjudicarnos nuestro primer contrato de servicios de tecnología con el Ministerio de Educación. La inversión en el curso se pagó sola con la primera oferta ganada."
+    authorName: Carlos Mendoza
+    authorDescription: Gerente General, TecnoSoluciones
+    authorImage: /src/assets/images/component-docs/profile.jpg
+    alignmentHorizontal: center
+    maxContentWidth: xl
+    paddingHorizontal: xl
+    paddingVertical: 2xl
     colorScheme: dark
     backgroundColor: surface
-    rounded: false
+  - _component: page-sections/info-blocks/faq-section
+    heading: Preguntas Frecuentes
+    headingLevel: h2
+    headingSize: lg
+    singleOpen: true
+    openFirst: false
+    items:
+      - title: ¿Necesito ser abogado para tomar los cursos?
+        contentSections:
+          - _component: building-blocks/core-elements/text
+            text: >-
+              No. Nuestros programas están explicados en un lenguaje empresarial directo, accesible y alejado de tecnicismos legales innecesarios. Está pensado para dueños de negocio y equipos de ventas.
+            size: md
+      - title: ¿Las clases son grabadas o en vivo?
+        contentSections:
+          - _component: building-blocks/core-elements/text
+            text: >-
+              Combinamos lo mejor de ambos mundos: lecciones grabadas en alta definición para que estudies a tu propio ritmo, junto con sesiones semanales de tutoría en vivo para resolver tus dudas.
+            size: md
+      - title: ¿El curso sirve para licitar en cualquier sector?
+        contentSections:
+          - _component: building-blocks/core-elements/text
+            text: >-
+              Sí. Los fundamentos de análisis de pliegos, estratégicas de participación son aplicables tanto a la venta de bienes, obras físicas como servicios profesionales.
+            size: md
+      - title: ¿Entregan certificado al terminar?
+        contentSections:
+          - _component: building-blocks/core-elements/text
+            text: >-
+              Sí, emitimos un certificado digital de participación y aprobación que avala las horas académicas y los conocimientos adquiridos para tu currículum o perfil empresarial.
+            size: md
+    maxContentWidth: xl
+    paddingHorizontal: xl
+    paddingVertical: 4xl
+    colorScheme: inherit
+    backgroundColor: none
+  - _component: page-sections/ctas/cta-form
+    heading: Da el primer paso para venderle al Estado
+    subtext: >-
+      ¿Quieres saber cuál de nuestros programas se adapta mejor a tu tipo de negocio? Déjanos tus datos y un asesor se pondrá en contacto contigo.
+    formAction: ./
+    formBlocks:
+      - _component: building-blocks/forms/input
+        label: Nombre Completo
+        name: nombre
+        type: text
+        required: true
+      - _component: building-blocks/forms/input
+        label: Correo Electrónico
+        name: email
+        type: email
+        required: true
+      - _component: building-blocks/forms/input
+        label: Empresa o Sector
+        name: sector
+        type: text
+        required: false
+      - _component: building-blocks/forms/textarea
+        label: ¿En qué te gustaría profundizar?
+        name: mensaje
+        required: true
+      - _component: building-blocks/forms/submit
+        text: Solicitar Información
+        variant: primary
+        size: md
+        iconPosition: before
+        hideText: false
+        disabled: false
+    imageSource: /src/assets/images/component-docs/website-documented.svg
+    imageAlt: Contáctanos en Avantia
+    reverse: false
+    colorScheme: dark
+    backgroundColor: surface
+    paddingVertical: 4xl
 ---

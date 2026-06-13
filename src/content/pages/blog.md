@@ -2,16 +2,13 @@
 _schema: default
 title: Blog
 description: >-
-  Read our latest articles and insights on web development, design, and
-  technology.
+  Lee nuestros últimos artículos, guías y consejos prácticos sobre licitaciones públicas y contratación estatal.
 pageSections:
   - _component: page-sections/heroes/hero-center
     eyebrow: ''
-    heading: All posts
+    heading: Blog de Licitaciones
     subtext: >-
-      This paginated blog index displays a grid of article cards, each waiting
-      to be populated with genuine posts once your content strategy moves beyond
-      placeholder text.
+      Recursos útiles, análisis de pliegos y las últimas novedades normativas para ayudarte a venderle más y mejor al Estado.
     buttonSections: []
     colorScheme: inherit
     backgroundColor: base
