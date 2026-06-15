@@ -10,7 +10,7 @@ pageSections:
       Entendemos lo complejo que puede parecer el mundo de las compras públicas. 
       Por eso, en Avantia eliminamos la jerga técnica y legal para darte un método paso a paso claro, práctico y directo para que empieces a licitar con éxito.
       Creemos en la democratización del acceso a las compras públicas para que más empresas y profesionales puedan convertirse en proveedores del Estado.
-    imageSource: /src/assets/images/component-docs/sunset.jpg
+    imageSource: /src/assets/images/component-docs/WhyFirstImage.png
     imageAlt: Formación en Licitaciones
     imageAspectRatio: portrait
     buttonSections: []
@@ -89,7 +89,7 @@ pageSections:
         title: Estructuración Profesional de la Oferta
         description: >-
           Prepara los documentos técnicos, económicos y jurídicos sin cometer los errores formales más comunes que causan la descalificación inmediata de los proponentes.
-        imageSource: /src/assets/images/component-docs/castle.jpg
+        imageSource: /src/assets/images/component-docs/WhyImage.png
         imageAlt: Estructuración de Oferta
       - eyebrow: Fase 4
         title: Gestión y Defensa del Proceso
@@ -220,7 +220,7 @@ pageSections:
         iconPosition: before
         hideText: false
         disabled: false
-    imageSource: /src/assets/images/component-docs/castle.jpg
+    imageSource: /src/assets/images/component-docs/WhyImage.png
     imageAlt: Contáctanos
     reverse: false
     colorScheme: dark

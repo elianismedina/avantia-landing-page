@@ -37,7 +37,7 @@ interface BasePreparedImageData {
   finalWidth: number | undefined;
   finalHeight: number | undefined;
   filteredWidths: number[];
-  useFit: "cover" | undefined;
+  useFit: "cover" | "contain" | undefined;
   usePosition: string | undefined;
 }
 
@@ -165,7 +165,7 @@ export function prepareImageData({
   const isLocalSource = typeof source === "string" && source.startsWith("/src/");
   const isSvg = typeof source === "string" && source.toLowerCase().endsWith(".svg");
 
-  let imageSrc = source;
+  let imageSrc: string | ImageMetadata | undefined = source;
   let imageWidth = width;
   let imageHeight = height;
   let shouldRenderOptimizedPicture = false;
@@ -193,7 +193,7 @@ export function prepareImageData({
 
   let finalWidth = imageWidth;
   let finalHeight = imageHeight;
-  let useFit: "cover" | undefined;
+  let useFit: "cover" | "contain" | undefined;
   let usePosition: string | undefined;
 
   if (
@@ -231,7 +231,7 @@ export function prepareImageData({
 
       finalWidth = maxWidth;
       finalHeight = maxHeight;
-      useFit = "cover";
+      useFit = "contain";
 
       const positionKey = `${positionVertical}-${positionHorizontal}`;
 
@@ -246,7 +246,7 @@ export function prepareImageData({
 
   if (shouldRenderOptimizedPicture && typeof imageSrc !== "string") {
     return {
-      imageSrc,
+      imageSrc: imageSrc as ImageMetadata,
       imageWidth,
       imageHeight,
       finalWidth,

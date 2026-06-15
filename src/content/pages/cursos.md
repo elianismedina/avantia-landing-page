@@ -210,7 +210,7 @@ pageSections:
         iconPosition: before
         hideText: false
         disabled: false
-    imageSource: /src/assets/images/component-docs/castle.jpg
+    imageSource: /src/assets/images/component-docs/SolicitaInformacion.png
     imageAlt: Solicitar Información
     reverse: false
     colorScheme: dark

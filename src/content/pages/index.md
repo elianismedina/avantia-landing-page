@@ -10,7 +10,7 @@ pageSections:
     subtext: >-
       Capacitación 100% práctica para venderle al cliente más grande de tu país: el Estado.
       Aprende a identificar oportunidades reales, estructurar ofertas ganadoras y evitar errores costosos.
-    imageSource: /src/assets/images/component-docs/website-hero.svg
+    imageSource: /src/assets/images/component-docs/secop2image.png
     imageAlt: Licitaciones exitosas con Avantia
     imageAspectRatio: square
     buttonSections:
@@ -80,7 +80,7 @@ pageSections:
         iconPosition: before
         variant: primary
         size: md
-    imageSource: /src/assets/images/component-docs/website-feature.svg
+    imageSource: /src/assets/images/component-docs/ProgramaInsigniaImage.png
     imageAlt: Curso de Licitaciones de Avantia
     imageAspectRatio: video
     imageRounded: true
@@ -216,7 +216,7 @@ pageSections:
         iconPosition: before
         hideText: false
         disabled: false
-    imageSource: /src/assets/images/component-docs/website-documented.svg
+    imageSource: /src/assets/images/component-docs/ContactanosImage.png
     imageAlt: Contáctanos en Avantia
     reverse: false
     colorScheme: dark
