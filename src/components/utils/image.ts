@@ -17,6 +17,7 @@ const ASPECT_RATIO_MAP: Record<string, number> = {
   portrait: 3 / 4,
   widescreen: 16 / 9,
   "horizontal-strip": 16 / 5,
+  "portrait-9-16": 9 / 16,
 };
 
 const POSITION_MAP: Record<string, string> = {

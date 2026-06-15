@@ -24,6 +24,7 @@ const {
   backgroundColor,
   background,
   class: className,
+  fixedWidth = "400",
   useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
@@ -44,7 +45,7 @@ const {
 >
   <Split
     distributionMode="flexible-fixed"
-    fixedWidth="400"
+    fixedWidth={fixedWidth}
     alignmentVertical="center"
     reverse={reverse}
     minSplitWidth={800}

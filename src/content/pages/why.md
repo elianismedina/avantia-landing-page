@@ -10,9 +10,10 @@ pageSections:
       Entendemos lo complejo que puede parecer el mundo de las compras públicas. 
       Por eso, en Avantia eliminamos la jerga técnica y legal para darte un método paso a paso claro, práctico y directo para que empieces a licitar con éxito.
       Creemos en la democratización del acceso a las compras públicas para que más empresas y profesionales puedan convertirse en proveedores del Estado.
-    imageSource: /src/assets/images/component-docs/WhyFirstImage.png
+    imageSource: /src/assets/images/component-docs/FormacionLicitaciones.png
     imageAlt: Formación en Licitaciones
-    imageAspectRatio: portrait
+    imageAspectRatio: portrait-9-16
+    fixedWidth: '500'
     buttonSections: []
     reverse: true
     colorScheme: inherit
