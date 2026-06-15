@@ -334,7 +334,9 @@ function createNavItemData(item: any, level: string, parentGroupId?: string) {
       // Find the toggle for this specific nav instance
       const toggleId = nav.getAttribute("data-toggle-id") || "";
       const toggle = document.getElementById(toggleId);
-      const hamburger = document.querySelector(`label[for="${toggleId}"].nav-hamburger`) as HTMLElement | null;
+      const hamburger = document.querySelector(
+        `label[for="${toggleId}"].nav-hamburger`
+      ) as HTMLElement | null;
 
       // Handle navigation toggle state and accessibility
       function handleNavToggle(isOpen: boolean) {
@@ -410,7 +412,8 @@ function createNavItemData(item: any, level: string, parentGroupId?: string) {
 
         if (dropdownToggle) {
           e.preventDefault();
-          (dropdownToggle as HTMLInputElement).checked = !(dropdownToggle as HTMLInputElement).checked;
+          (dropdownToggle as HTMLInputElement).checked = !(dropdownToggle as HTMLInputElement)
+            .checked;
           dropdownToggle.dispatchEvent(new Event("change"));
         }
       };

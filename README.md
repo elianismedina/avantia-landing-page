@@ -86,4 +86,5 @@ Head to the [component docs](http://localhost:4321/component-docs/) in your dev 
 ## License
 
 MIT
+
 # avantia-landing-page

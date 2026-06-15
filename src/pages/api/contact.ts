@@ -27,7 +27,7 @@ export const POST: APIRoute = async ({ request }) => {
         JSON.stringify({ error: "Configuración de Airtable incompleta en el servidor." }),
         {
           status: 500,
-          headers: { "Content-Type": "application/json" }
+          headers: { "Content-Type": "application/json" },
         }
       );
     }
@@ -40,43 +40,41 @@ export const POST: APIRoute = async ({ request }) => {
         Empresa: empresa,
         Sector: finalSector,
         Personas: personas_capacitar,
-        Expectativas: expectativas
-      }
+        Expectativas: expectativas,
+      },
     };
 
-    const response = await fetch(`https://api.airtable.com/v0/${airtableBase}/${encodeURIComponent(airtableTable)}`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${airtablePat}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(airtableData)
-    });
+    const response = await fetch(
+      `https://api.airtable.com/v0/${airtableBase}/${encodeURIComponent(airtableTable)}`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${airtablePat}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(airtableData),
+      }
+    );
 
     if (!response.ok) {
       const errText = await response.text();
+
       console.error("Airtable API error response:", errText);
-      return new Response(
-        JSON.stringify({ error: `Error de Airtable: ${response.statusText}` }),
-        {
-          status: response.status,
-          headers: { "Content-Type": "application/json" }
-        }
-      );
+      return new Response(JSON.stringify({ error: `Error de Airtable: ${response.statusText}` }), {
+        status: response.status,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
-      headers: { "Content-Type": "application/json" }
+      headers: { "Content-Type": "application/json" },
     });
   } catch (error: any) {
     console.error("Endpoint submission error:", error);
-    return new Response(
-      JSON.stringify({ error: error.message || "Error interno del servidor." }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json" }
-      }
-    );
+    return new Response(JSON.stringify({ error: error.message || "Error interno del servidor." }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 };
