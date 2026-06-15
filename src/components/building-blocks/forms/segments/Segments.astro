@@ -2,6 +2,20 @@
 import Icon from "@core-elements/icon/Icon.astro";
 import type { SegmentOption } from "../../../../types";
 
+interface Props {
+  name: string;
+  options?: SegmentOption[];
+  title?: string;
+  required?: boolean;
+  iconOnly?: boolean;
+  multiple?: boolean;
+  keepStateOnRefresh?: boolean;
+  class?: string;
+  useDefaultEditableBinding?: boolean;
+  _component?: string;
+  [key: string]: any;
+}
+
 const {
   name,
   options = [] as SegmentOption[],
@@ -49,7 +63,7 @@ const inputType = multiple ? "checkbox" : "radio";
     role="presentation"
   >
     {
-      options.map((option, index: number) => (
+      options.map((option: SegmentOption, index: number) => (
         <label class="segments-option">
           <input
             type={inputType}
