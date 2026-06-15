@@ -17,7 +17,7 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: Explorar Cursos
         hideText: false
-        link: '#cursos'
+        link: '/cursos/'
         iconName: ''
         iconPosition: before
         variant: primary
@@ -137,10 +137,11 @@ pageSections:
     colorScheme: inherit
     backgroundColor: none
   - _component: page-sections/ctas/cta-form
+    id: contacto
     heading: Da el primer paso para venderle al Estado
     subtext: >-
       ¿Quieres saber cuál de nuestros programas se adapta mejor a tu tipo de negocio? Déjanos tus datos y un asesor se pondrá en contacto contigo.
-    formAction: ./
+    formAction: /api/contact
     formBlocks:
       - _component: building-blocks/forms/input
         label: Nombre Completo
@@ -153,13 +154,60 @@ pageSections:
         type: email
         required: true
       - _component: building-blocks/forms/input
-        label: Empresa o Sector
+        label: Teléfono de Contacto
+        name: telefono
+        type: tel
+        required: true
+      - _component: building-blocks/forms/input
+        label: Nombre de la Empresa
+        name: empresa
+        type: text
+        required: true
+      - _component: building-blocks/forms/select
+        label: Sector Económico
         name: sector
+        placeholder: Selecciona tu sector
+        required: true
+        options:
+          - label: Comercio
+            value: comercio
+          - label: Finanzas y seguros
+            value: finanzas_seguros
+          - label: Transporte y turismo
+            value: transporte_turismo
+          - label: Agricultura y Agroindustria
+            value: agricultura_agroindustria
+          - label: Minería y Energía
+            value: mineria_energia
+          - label: Industria manufacturera
+            value: industria_manufacturera
+          - label: Construcción
+            value: construccion
+          - label: Otro
+            value: otro
+      - _component: building-blocks/forms/input
+        label: ¿Cuál es tu sector económico?
+        name: sector_otro
         type: text
         required: false
+      - _component: building-blocks/forms/select
+        label: Personas a Capacitar
+        name: personas_capacitar
+        placeholder: ¿Cuántas personas deseas capacitar?
+        required: true
+        options:
+          - label: 1 persona (Solo yo)
+            value: '1'
+          - label: 2 a 5 personas
+            value: 2-5
+          - label: 6 a 10 personas
+            value: 6-10
+          - label: Más de 10 personas
+            value: 10+
       - _component: building-blocks/forms/textarea
-        label: ¿En qué te gustaría profundizar?
-        name: mensaje
+        label: Expectativas del curso
+        name: expectativas
+        placeholder: ¿Qué esperas aprender o lograr con esta capacitación?
         required: true
       - _component: building-blocks/forms/submit
         text: Solicitar Información

@@ -19,18 +19,18 @@ const toggleId = `mobile-toggle-${crypto.randomUUID()}`;
 const navInstanceId = crypto.randomUUID();
 
 // Check if item is current page
-function isCurrentPage(item) {
+function isCurrentPage(item: any) {
   return Boolean(item.path && Astro.url.pathname === item.path);
 }
 
 // Check if any child is current page (recursive)
-function hasCurrentChild(item) {
+function hasCurrentChild(item: any) {
   if (isCurrentPage(item)) return true;
-  return Boolean(item.children?.some((child) => hasCurrentChild(child)));
+  return Boolean(item.children?.some((child: any) => hasCurrentChild(child)));
 }
 
 // Create navigation item data
-function createNavItemData(item, level, parentGroupId) {
+function createNavItemData(item: any, level: string, parentGroupId?: string) {
   const hasChildren = Boolean(item.children?.length);
 
   return {
@@ -109,7 +109,7 @@ function createNavItemData(item, level, parentGroupId) {
   <div class="mobile-content">
     <ul class="mobile-list">
       {
-        navData.map((item) => {
+        navData.map((item: any) => {
           const itemData = createNavItemData(item, "top");
 
           if (!itemData.hasChildren) {
@@ -188,7 +188,7 @@ function createNavItemData(item, level, parentGroupId) {
                 aria-hidden={!itemData.hasCurrent}
               >
                 <ul class="nav-list">
-                  {itemData.children!.map((child) => {
+                  {itemData.children!.map((child: any) => {
                     const childData = createNavItemData(child, "child", itemData.parentGroupId);
 
                     if (!childData.hasChildren) {
@@ -267,7 +267,7 @@ function createNavItemData(item, level, parentGroupId) {
                           aria-hidden={!childData.hasCurrent}
                         >
                           <ul class="nav-list">
-                            {childData.children!.map((grandChild) => {
+                            {childData.children!.map((grandChild: any) => {
                               const grandChildData = createNavItemData(
                                 grandChild,
                                 "child",
@@ -332,36 +332,36 @@ function createNavItemData(item, level, parentGroupId) {
       overlaysContainer.appendChild(nav);
 
       // Find the toggle for this specific nav instance
-      const toggleId = nav.getAttribute("data-toggle-id");
+      const toggleId = nav.getAttribute("data-toggle-id") || "";
       const toggle = document.getElementById(toggleId);
-      const hamburger = document.querySelector(`label[for="${toggleId}"].nav-hamburger`);
+      const hamburger = document.querySelector(`label[for="${toggleId}"].nav-hamburger`) as HTMLElement | null;
 
       // Handle navigation toggle state and accessibility
-      function handleNavToggle(isOpen) {
+      function handleNavToggle(isOpen: boolean) {
         if (isOpen) {
-          nav.setAttribute("aria-hidden", "false");
-          nav.style.transform = "translateX(0)";
-          document.body.style.overflow = "hidden";
-          nav.querySelector(".mobile-close")?.focus();
+          navElement.setAttribute("aria-hidden", "false");
+          navElement.style.transform = "translateX(0)";
+          if (document.body) document.body.style.overflow = "hidden";
+          (navElement.querySelector(".mobile-close") as HTMLElement)?.focus();
         } else {
-          nav.setAttribute("aria-hidden", "true");
-          nav.style.transform = "translateX(-100%)";
-          document.body.style.overflow = "";
+          navElement.setAttribute("aria-hidden", "true");
+          navElement.style.transform = "translateX(-100%)";
+          if (document.body) document.body.style.overflow = "";
           hamburger?.focus();
         }
       }
 
       // Handle hamburger button interactions
       if (hamburger && toggle) {
-        const toggleHandler = (e) => {
+        const toggleHandler = (e: Event) => {
           e.preventDefault();
           e.stopPropagation();
-          toggle.checked = !toggle.checked;
-          handleNavToggle(toggle.checked);
+          (toggle as HTMLInputElement).checked = !(toggle as HTMLInputElement).checked;
+          handleNavToggle((toggle as HTMLInputElement).checked);
         };
 
         hamburger.addEventListener("click", toggleHandler);
-        hamburger.addEventListener("keydown", (e) => {
+        hamburger.addEventListener("keydown", (e: any) => {
           if (e.key === "Enter" || e.key === " ") {
             toggleHandler(e);
           }
@@ -371,15 +371,15 @@ function createNavItemData(item, level, parentGroupId) {
       // Handle close button interactions
       const closeButton = nav.querySelector(".mobile-close");
       if (closeButton && toggle) {
-        const closeHandler = (e) => {
+        const closeHandler = (e: Event) => {
           e.preventDefault();
           e.stopPropagation();
-          toggle.checked = false;
+          (toggle as HTMLInputElement).checked = false;
           handleNavToggle(false);
         };
 
         closeButton.addEventListener("click", closeHandler);
-        closeButton.addEventListener("keydown", (e) => {
+        closeButton.addEventListener("keydown", (e: any) => {
           if (e.key === "Enter" || e.key === " ") {
             closeHandler(e);
           }
@@ -388,14 +388,14 @@ function createNavItemData(item, level, parentGroupId) {
 
       // Handle toggle state changes
       if (toggle) {
-        toggle.addEventListener("change", (e) => {
+        toggle.addEventListener("change", (e: any) => {
           handleNavToggle(e.target.checked);
         });
       }
 
       // Handle dropdown interactions using event delegation
-      const handleDropdownToggle = (e) => {
-        const trigger = e.target?.closest(".nav-item-trigger");
+      const handleDropdownToggle = (e: Event) => {
+        const trigger = (e.target as HTMLElement)?.closest(".nav-item-trigger");
         if (!trigger) return;
 
         const radioName = trigger.getAttribute("for");
@@ -410,22 +410,22 @@ function createNavItemData(item, level, parentGroupId) {
 
         if (dropdownToggle) {
           e.preventDefault();
-          dropdownToggle.checked = !dropdownToggle.checked;
+          (dropdownToggle as HTMLInputElement).checked = !(dropdownToggle as HTMLInputElement).checked;
           dropdownToggle.dispatchEvent(new Event("change"));
         }
       };
 
       nav.addEventListener("click", handleDropdownToggle);
-      nav.addEventListener("keydown", (e) => {
+      nav.addEventListener("keydown", (e: any) => {
         if (e.key === "Enter" || e.key === " ") {
           handleDropdownToggle(e);
         }
       });
 
       // Handle escape key to close navigation
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && toggle?.checked) {
-          toggle.checked = false;
+      document.addEventListener("keydown", (e: any) => {
+        if (e.key === "Escape" && (toggle as HTMLInputElement)?.checked) {
+          (toggle as HTMLInputElement).checked = false;
           handleNavToggle(false);
         }
       });
@@ -467,16 +467,16 @@ function createNavItemData(item, level, parentGroupId) {
         border-bottom: 1px solid var(--color-border-subtle);
         display: flex;
         flex-shrink: 0;
-        height: 5rem;
+        height: 6rem;
         justify-content: space-between;
         padding: 0 var(--spacing-lg);
 
         .mobile-logo {
           align-items: center;
           display: flex;
-          flex: 0 1 min(11rem, 100%);
+          flex: 0 1 min(18rem, 100%);
           min-width: 0;
-          width: min(11rem, 100%);
+          width: min(18rem, 100%);
         }
 
         .mobile-header-actions {
@@ -745,7 +745,7 @@ function createNavItemData(item, level, parentGroupId) {
     .mobile .mobile-header .mobile-logo .mobile-logo-image svg,
     .mobile .mobile-header .mobile-logo svg {
       display: block;
-      height: 2rem;
+      height: 4rem;
       max-width: 100%;
       width: auto;
     }

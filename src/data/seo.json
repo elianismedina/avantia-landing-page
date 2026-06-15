@@ -3,6 +3,6 @@
   "name": "Avantia Academia",
   "url": "https://avantia.edu.co",
   "description": "Aprende a venderle al Estado. Cursos prácticos y consultoría en contratación pública y licitaciones estatales en Hispanoamérica.",
-  "logoSource": "/src/assets/images/component-docs/acs-logo.svg",
+  "logoSource": "/src/assets/images/component-docs/LogoAvantia.svg",
   "titleFormat": "{title} | Avantia Academia"
 }

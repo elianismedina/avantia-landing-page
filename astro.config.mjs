@@ -6,6 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import mdx from "@astrojs/mdx";
+import node from "@astrojs/node";
 
 import { siteFonts } from "./site-fonts.mjs";
 
@@ -13,6 +14,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
+  adapter: node({
+    mode: "standalone",
+  }),
   site: "https://example.com", // TODO: Update to your production URL
   fonts: siteFonts,
   build: {

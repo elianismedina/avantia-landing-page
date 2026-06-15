@@ -78,3 +78,122 @@ const {
     </Fragment>
   </Split>
 </CustomSection>
+
+<script>
+  import { onPageLoad } from "@component-utils/onPageLoad";
+
+  onPageLoad(() => {
+    // 1. Handle "Otro" sector toggle
+    const sectorSelects = document.querySelectorAll('select[name="sector"]');
+    sectorSelects.forEach(select => {
+      const form = select.closest('form');
+      if (!form) return;
+      
+      const otroInput = form.querySelector('[name="sector_otro"]') as HTMLInputElement | null;
+      if (!otroInput) return;
+      
+      const wrapper = otroInput.closest('.input') as HTMLDivElement | null;
+      if (!wrapper) return;
+      
+      const toggleOtro = () => {
+        if (select instanceof HTMLSelectElement && select.value === 'otro') {
+          wrapper.style.display = 'flex';
+          otroInput.required = true;
+        } else {
+          wrapper.style.display = 'none';
+          otroInput.required = false;
+          otroInput.value = '';
+        }
+      };
+
+      // Set initial state
+      toggleOtro();
+
+      // Listen to changes
+      select.addEventListener('change', toggleOtro);
+    });
+
+    // 2. Handle AJAX Form Submission
+    const ctaForms = document.querySelectorAll('.cta-form form');
+    ctaForms.forEach(form => {
+      if (!(form instanceof HTMLFormElement)) return;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+        const originalButtonText = submitButton ? submitButton.innerHTML : 'Enviar';
+        
+        // Remove any previous error messages
+        const prevError = form.querySelector('.form-error-message');
+        if (prevError) prevError.remove();
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.innerHTML = 'Enviando...';
+        }
+
+        try {
+          const formData = new FormData(form);
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+          });
+
+          const result = await response.json();
+
+          if (response.ok && result.success) {
+            // Create success message container
+            const successDiv = document.createElement('div');
+            successDiv.className = 'form-success-message';
+            successDiv.style.display = 'flex';
+            successDiv.style.flexDirection = 'column';
+            successDiv.style.alignItems = 'center';
+            successDiv.style.textAlign = 'center';
+            successDiv.style.gap = 'var(--spacing-sm)';
+            successDiv.style.padding = 'var(--spacing-lg)';
+            successDiv.style.background = 'var(--color-success-bg-subtle)';
+            successDiv.style.borderRadius = 'var(--radius-xs)';
+            successDiv.style.border = '1px solid var(--color-success)';
+            successDiv.style.marginTop = 'var(--spacing-md)';
+            
+            successDiv.innerHTML = `
+              <svg style="color: var(--color-success); width: 48px; height: 48px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <h3 style="margin: 0; color: var(--color-success); font-family: var(--font-family-headings);">¡Datos recibidos con éxito!</h3>
+              <p style="margin: 0; font-size: 0.95em; color: var(--color-text);">Gracias por tu interés. Tu información ha sido registrada en Airtable y un asesor se pondrá en contacto contigo en breve.</p>
+            `;
+
+            // Replace the form contents with the success message
+            form.replaceWith(successDiv);
+          } else {
+            throw new Error(result.error || 'Ocurrió un error al enviar el formulario.');
+          }
+        } catch (error: any) {
+          console.error(error);
+          
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalButtonText;
+          }
+
+          // Show error message
+          const errorDiv = document.createElement('div');
+          errorDiv.className = 'form-error-message';
+          errorDiv.style.color = 'var(--color-error)';
+          errorDiv.style.fontSize = '0.9em';
+          errorDiv.style.marginTop = 'var(--spacing-sm)';
+          errorDiv.style.textAlign = 'center';
+          errorDiv.innerText = error.message || 'Error de conexión. Inténtalo de nuevo.';
+          
+          if (submitButton && submitButton.parentNode) {
+            submitButton.parentNode.insertBefore(errorDiv, submitButton);
+          } else {
+            form.appendChild(errorDiv);
+          }
+        }
+      });
+    });
+  });
+</script>

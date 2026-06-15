@@ -135,7 +135,7 @@ pageSections:
     heading: Obtén el pensum completo en PDF
     subtext: >-
       ¿Quieres compartir esta información con tu equipo o necesitas un temario personalizado para tu empresa? Déjanos tus datos y te lo enviaremos de inmediato.
-    formAction: ./
+    formAction: /api/contact
     formBlocks:
       - _component: building-blocks/forms/input
         label: Nombre Completo
@@ -143,13 +143,65 @@ pageSections:
         type: text
         required: true
       - _component: building-blocks/forms/input
-        label: Correo Corporativo
+        label: Correo Electrónico
         name: email
         type: email
         required: true
+      - _component: building-blocks/forms/input
+        label: Teléfono de Contacto
+        name: telefono
+        type: tel
+        required: true
+      - _component: building-blocks/forms/input
+        label: Nombre de la Empresa
+        name: empresa
+        type: text
+        required: true
+      - _component: building-blocks/forms/select
+        label: Sector Económico
+        name: sector
+        placeholder: Selecciona tu sector
+        required: true
+        options:
+          - label: Comercio
+            value: comercio
+          - label: Finanzas y seguros
+            value: finanzas_seguros
+          - label: Transporte y turismo
+            value: transporte_turismo
+          - label: Agricultura y Agroindustria
+            value: agricultura_agroindustria
+          - label: Minería y Energía
+            value: mineria_energia
+          - label: Industria manufacturera
+            value: industria_manufacturera
+          - label: Construcción
+            value: construccion
+          - label: Otro
+            value: otro
+      - _component: building-blocks/forms/input
+        label: ¿Cuál es tu sector económico?
+        name: sector_otro
+        type: text
+        required: false
+      - _component: building-blocks/forms/select
+        label: Personas a Capacitar
+        name: personas_capacitar
+        placeholder: ¿Cuántas personas deseas capacitar?
+        required: true
+        options:
+          - label: 1 persona (Solo yo)
+            value: '1'
+          - label: 2 a 5 personas
+            value: 2-5
+          - label: 6 a 10 personas
+            value: 6-10
+          - label: Más de 10 personas
+            value: 10+
       - _component: building-blocks/forms/textarea
-        label: ¿Qué programa o módulo te interesa más?
-        name: mensaje
+        label: Expectativas del curso
+        name: expectativas
+        placeholder: ¿Qué esperas aprender o lograr con esta capacitación?
         required: true
       - _component: building-blocks/forms/submit
         text: Solicitar Pensum

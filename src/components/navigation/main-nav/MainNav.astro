@@ -98,6 +98,21 @@ const mobileNavData = [
         }
       }
 
+      @container (max-width: 768px) {
+        > .outer-content > .content {
+          height: 6rem;
+        }
+        > .outer-content > .content > .main-nav-logo-link {
+          flex: 0 1 auto;
+          width: auto;
+          max-width: 70%;
+        }
+        > .outer-content > .content > .main-nav-logo-link > .main-nav-logo img,
+        > .outer-content > .content > .main-nav-logo-link > .main-nav-logo svg {
+          height: 4rem;
+        }
+      }
+
       .nav-hamburger.mobile-button {
         @container (min-width: 769px) {
           display: none;
@@ -110,14 +125,14 @@ const mobileNavData = [
         display: flex;
         flex-wrap: wrap;
         gap: var(--spacing-md);
-        height: 5rem;
+        height: 11.5rem;
 
         > .main-nav-logo-link {
           align-items: center;
           display: flex;
-          flex: 0 1 min(11rem, 100%);
+          flex: 0 1 min(36rem, 100%);
           min-width: 0;
-          width: min(11rem, 100%);
+          width: min(36rem, 100%);
         }
 
         > .main-nav-logo-link > .main-nav-logo {
@@ -135,11 +150,10 @@ const mobileNavData = [
           display: block;
           width: 100%;
         }
-
         > .main-nav-logo-link > .main-nav-logo img,
         > .main-nav-logo-link > .main-nav-logo svg {
           display: block;
-          height: 2rem;
+          height: 10rem;
           max-width: 100%;
           width: auto;
         }
