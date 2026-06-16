@@ -12,10 +12,14 @@ import { siteFonts } from "./site-fonts.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+const isTest = typeof process !== "undefined" && !!process.env.VITEST;
+
 // https://astro.build/config
 export default defineConfig({
-  adapter: node({
-    mode: "standalone",
+  ...(isTest ? {} : {
+    adapter: node({
+      mode: "standalone",
+    }),
   }),
   site: "https://avantia-landing-page.firebaseapp.com",
   fonts: siteFonts,
@@ -32,66 +36,68 @@ export default defineConfig({
     domains: [],
   },
   integrations: [
-    {
-      name: "builder-preview-dev-only",
-      hooks: {
-        "astro:config:setup": ({ command, injectRoute, updateConfig }) => {
-          if (command === "dev") {
-            injectRoute({
-              pattern: "/component-docs/builder-preview",
-              entrypoint: "./src/component-docs/pages/builder-preview.astro",
-              prerender: false,
-            });
-            updateConfig({
-              adapter: {
-                name: "dev-only-server-preview",
-                serverEntrypoint: "",
-                supportedAstroFeatures: {
-                  serverOutput: "stable",
-                  staticOutput: "stable",
-                  hybridOutput: "stable",
-                  sharpImageService: "stable",
+    ...(isTest ? [] : [
+      {
+        name: "builder-preview-dev-only",
+        hooks: {
+          "astro:config:setup": ({ command, injectRoute, updateConfig }) => {
+            if (command === "dev") {
+              injectRoute({
+                pattern: "/component-docs/builder-preview",
+                entrypoint: "./src/component-docs/pages/builder-preview.astro",
+                prerender: false,
+              });
+              updateConfig({
+                adapter: {
+                  name: "dev-only-server-preview",
+                  serverEntrypoint: "",
+                  supportedAstroFeatures: {
+                    serverOutput: "stable",
+                    staticOutput: "stable",
+                    hybridOutput: "stable",
+                    sharpImageService: "stable",
+                  },
                 },
-              },
-            });
-          }
+              });
+            }
+          },
         },
       },
-    },
-    editableRegions(),
-    icon({
-      iconDir: path.resolve(__dirname, "src/icons"),
-      svgoOptions: {
-        plugins: [
-          {
-            name: "preset-default",
-            params: {
-              overrides: {
-                cleanupIds: false,
+      editableRegions(),
+      icon({
+        iconDir: path.resolve(__dirname, "src/icons"),
+        svgoOptions: {
+          plugins: [
+            {
+              name: "preset-default",
+              params: {
+                overrides: {
+                  cleanupIds: false,
+                },
               },
             },
-          },
-        ],
-      },
-    }),
-    sitemap({
-      filter: (page) => {
-        if (page.endsWith("/404") || page.endsWith("/404.html")) {
-          return false;
-        }
-        if (page.includes("/component-docs")) {
-          return false;
-        }
-        return true;
-      },
-    }),
+          ],
+        },
+      }),
+      sitemap({
+        filter: (page) => {
+          if (page.endsWith("/404") || page.endsWith("/404.html")) {
+            return false;
+          }
+          if (page.includes("/component-docs")) {
+            return false;
+          }
+          return true;
+        },
+      }),
+    ]),
     mdx(),
   ],
   vite: {
     build: {
       minify: "esbuild",
     },
-    plugins: [
+    plugins: isTest ? [] : [
       {
         name: "suppress-node-externalized-warning",
         config() {
