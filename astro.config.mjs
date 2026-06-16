@@ -17,7 +17,7 @@ export default defineConfig({
   adapter: node({
     mode: "standalone",
   }),
-  site: "https://example.com", // TODO: Update to your production URL
+  site: "https://avantia-landing-page.firebaseapp.com",
   fonts: siteFonts,
   build: {
     inlineStylesheets: "always",
