@@ -116,32 +116,6 @@ pageSections:
     paddingVertical: 2xl
     colorScheme: dark
     backgroundColor: surface
-  - _component: page-sections/people/team-grid
-    eyebrow: Nuestro Equipo
-    heading: Conoce a tus instructores
-    subtext: Profesionales en activo que te acompañarán en cada paso del proceso de licitación.
-    teamMembers:
-      - name: Alejandro Silva
-        role: Director Académico
-        bio: >-
-          Consultor especialista en derecho administrativo con más de 12 años asesorando a pymes en procesos de contratación con entidades nacionales y regionales.
-        imageSource: /src/assets/images/component-docs/profile1.jpg
-        imageAlt: Alejandro Silva
-      - name: Tomás Rodríguez
-        role: Instructor Principal
-        bio: >-
-          Especialista en estructuración de ofertas técnicas y económicas de gran envergadura. Consultor activo para el sector de obras y tecnología.
-        imageSource: /src/assets/images/component-docs/profile2.jpg
-        imageAlt: Tomás Rodríguez
-      - name: Elena Rincón
-        role: Especialista en Plataformas
-        bio: >-
-          Experta técnica en la parametrización, registro de proponentes y carga de ofertas electrónicas en los principales portales de compras públicas del continente.
-        imageSource: /src/assets/images/component-docs/profile3.jpg
-        imageAlt: Elena Rincón
-    colorScheme: dark
-    backgroundColor: surface
-    paddingVertical: 2xl
   - _component: page-sections/ctas/cta-form
     heading: Comienza tu camino hacia el éxito hoy mismo
     subtext: >-
