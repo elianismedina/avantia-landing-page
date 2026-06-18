@@ -36,6 +36,9 @@ export default defineConfig({
     port: process.env.PORT ? parseInt(process.env.PORT) : 4321,
     allowedHosts: true,
   },
+  security: {
+    checkOrigin: false,
+  },
   image: {
     domains: [],
   },
