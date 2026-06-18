@@ -1,4 +1,18 @@
 ---
+interface SlotItem {
+  title: string;
+  description?: string;
+  fallback_for?: string;
+  child_component?: {
+    name: string;
+    props?: string[];
+  };
+}
+
+interface Props {
+  slotData: SlotItem[];
+}
+
 const { slotData } = Astro.props;
 
 const slots = slotData;

@@ -1,0 +1,14 @@
+# apphosting.yaml
+runConfig:
+  cpu: 1
+  memoryMiB: 512
+  minInstances: 0
+  maxInstances: 10
+
+env:
+  - variable: AIRTABLE_PAT
+    secret: AIRTABLE_PAT
+  - variable: AIRTABLE_BASE_ID
+    value: "appYOQPX3ZUufLWbs"
+  - variable: AIRTABLE_TABLE_NAME
+    value: "tblx5jtaQDsgqZICZ"
