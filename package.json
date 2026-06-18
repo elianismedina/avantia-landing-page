@@ -3,14 +3,8 @@
   "type": "module",
   "version": "1.0.2",
   "description": "A modern design system built with Astro, featuring design tokens, components, and comprehensive documentation",
-  "keywords": [
-    "design-system",
-    "astro",
-    "components",
-    "css",
-    "design-tokens"
-  ],
-  "author": "Your Name",
+  "keywords": ["design-system", "astro", "components", "css", "design-tokens"],
+  "author": "ElianisDev",
   "license": "MIT",
   "scripts": {
     "dev": "astro dev",
