@@ -14,7 +14,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "node ./dist/server/entry.mjs",
     "test": "vitest run",
     "build": "cross-env DISABLE_COMPONENT_LIBRARY=true astro build",
     "build:with-library": "astro build",
