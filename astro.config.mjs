@@ -16,12 +16,14 @@ const isTest = typeof process !== "undefined" && !!process.env.VITEST;
 
 // https://astro.build/config
 export default defineConfig({
-  ...(isTest ? {} : {
-    adapter: node({
-      mode: "standalone",
-    }),
-  }),
-  site: "https://avantia-landing-page.firebaseapp.com",
+  ...(isTest
+    ? {}
+    : {
+        adapter: node({
+          mode: "standalone",
+        }),
+      }),
+  site: "https://www.avantia.com.co",
   fonts: siteFonts,
   build: {
     inlineStylesheets: "always",
@@ -32,106 +34,111 @@ export default defineConfig({
   server: {
     host: true,
     port: process.env.PORT ? parseInt(process.env.PORT) : 4321,
+    allowedHosts: true,
   },
   image: {
     domains: [],
   },
   integrations: [
-    ...(isTest ? [] : [
-      {
-        name: "builder-preview-dev-only",
-        hooks: {
-          "astro:config:setup": ({ command, injectRoute, updateConfig }) => {
-            if (command === "dev") {
-              injectRoute({
-                pattern: "/component-docs/builder-preview",
-                entrypoint: "./src/component-docs/pages/builder-preview.astro",
-                prerender: false,
-              });
-              updateConfig({
-                adapter: {
-                  name: "dev-only-server-preview",
-                  serverEntrypoint: "",
-                  supportedAstroFeatures: {
-                    serverOutput: "stable",
-                    staticOutput: "stable",
-                    hybridOutput: "stable",
-                    sharpImageService: "stable",
-                  },
-                },
-              });
-            }
-          },
-        },
-      },
-      editableRegions(),
-      icon({
-        iconDir: path.resolve(__dirname, "src/icons"),
-        svgoOptions: {
-          plugins: [
-            {
-              name: "preset-default",
-              params: {
-                overrides: {
-                  cleanupIds: false,
-                },
+    ...(isTest
+      ? []
+      : [
+          {
+            name: "builder-preview-dev-only",
+            hooks: {
+              "astro:config:setup": ({ command, injectRoute, updateConfig }) => {
+                if (command === "dev") {
+                  injectRoute({
+                    pattern: "/component-docs/builder-preview",
+                    entrypoint: "./src/component-docs/pages/builder-preview.astro",
+                    prerender: false,
+                  });
+                  updateConfig({
+                    adapter: {
+                      name: "dev-only-server-preview",
+                      serverEntrypoint: "",
+                      supportedAstroFeatures: {
+                        serverOutput: "stable",
+                        staticOutput: "stable",
+                        hybridOutput: "stable",
+                        sharpImageService: "stable",
+                      },
+                    },
+                  });
+                }
               },
             },
-          ],
-        },
-      }),
-      sitemap({
-        filter: (page) => {
-          if (page.endsWith("/404") || page.endsWith("/404.html")) {
-            return false;
-          }
-          if (page.includes("/component-docs")) {
-            return false;
-          }
-          return true;
-        },
-      }),
-    ]),
+          },
+          editableRegions(),
+          icon({
+            iconDir: path.resolve(__dirname, "src/icons"),
+            svgoOptions: {
+              plugins: [
+                {
+                  name: "preset-default",
+                  params: {
+                    overrides: {
+                      cleanupIds: false,
+                    },
+                  },
+                },
+              ],
+            },
+          }),
+          sitemap({
+            filter: (page) => {
+              if (page.endsWith("/404") || page.endsWith("/404.html")) {
+                return false;
+              }
+              if (page.includes("/component-docs")) {
+                return false;
+              }
+              return true;
+            },
+          }),
+        ]),
     mdx(),
   ],
   vite: {
     build: {
       minify: "esbuild",
     },
-    plugins: isTest ? [] : [
-      {
-        name: "suppress-node-externalized-warning",
-        config() {
-          return {
-            build: {
-              rollupOptions: {
-                onwarn(warning, defaultHandler) {
-                  if (
-                    warning.message?.includes("externalized for browser compatibility") &&
-                    warning.message?.includes("discoverVideoSources")
-                  )
-                    return;
-                  defaultHandler(warning);
+    plugins: isTest
+      ? []
+      : [
+          {
+            name: "suppress-node-externalized-warning",
+            config() {
+              return {
+                build: {
+                  rollupOptions: {
+                    onwarn(warning, defaultHandler) {
+                      if (
+                        warning.message?.includes("externalized for browser compatibility") &&
+                        warning.message?.includes("discoverVideoSources")
+                      )
+                        return;
+                      defaultHandler(warning);
+                    },
+                  },
                 },
-              },
+              };
             },
-          };
-        },
-        configResolved(config) {
-          const originalWarn = config.logger.warn;
+            configResolved(config) {
+              const originalWarn = config.logger.warn;
 
-          config.logger.warn = (msg, options) => {
-            if (
-              typeof msg === "string" &&
-              msg.includes("externalized for browser compatibility") &&
-              msg.includes("discoverVideoSources")
-            )
-              return;
-            originalWarn(msg, options);
-          };
-        },
-      },
-    ],
+              config.logger.warn = (msg, options) => {
+                if (
+                  typeof msg === "string" &&
+                  msg.includes("externalized for browser compatibility") &&
+                  msg.includes("discoverVideoSources")
+                )
+                  return;
+                originalWarn(msg, options);
+              };
+            },
+          },
+        ],
     build: {
       chunkSizeWarningLimit: 1024,
     },
