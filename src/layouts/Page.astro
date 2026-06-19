@@ -6,6 +6,7 @@ import MainComponent from "@components/utils/MainComponent.astro";
 import footerData from "@data/footer.json";
 import mainNavData from "@data/mainNav.json";
 import Layout from "@layouts/BaseLayout.astro";
+import WhatsappButton from "@components/utils/WhatsappButton.astro";
 
 import type { ContentBlock } from "../types";
 
@@ -100,4 +101,5 @@ const sections = frontmatter?.pageSections ?? [];
     </div>
   </main>
   <Footer {...footer} />
+  <WhatsappButton />
 </Layout>
