@@ -7,10 +7,15 @@ import { fileURLToPath } from "node:url";
 
 import mdx from "@astrojs/mdx";
 import node from "@apphosting/astro-adapter";
+import { createRequire } from "node:module";
 
 import { siteFonts } from "./site-fonts.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const require = createRequire(import.meta.url);
+const pluginPath = path.join(require.resolve("@astrojs/node"), "../vite-plugin-config.js");
+const { createConfigPlugin } = require(pluginPath);
 
 const isTest = typeof process !== "undefined" && !!process.env.VITEST;
 
@@ -46,6 +51,29 @@ export default defineConfig({
     ...(isTest
       ? []
       : [
+          {
+            name: "apphosting-astro-node-bridge",
+            hooks: {
+              "astro:config:setup": ({ updateConfig, config }) => {
+                updateConfig({
+                  vite: {
+                    plugins: [
+                      createConfigPlugin({
+                        mode: "standalone",
+                        client: config.build.client?.toString(),
+                        server: config.build.server?.toString(),
+                        host: config.server.host,
+                        port: config.server.port,
+                        staticHeaders: false,
+                        bodySizeLimit: 1024 * 1024 * 1024,
+                        experimentalDisableStreaming: false,
+                      }),
+                    ],
+                  },
+                });
+              },
+            },
+          },
           {
             name: "builder-preview-dev-only",
             hooks: {
