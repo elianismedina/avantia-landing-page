@@ -2,132 +2,137 @@ collections_config:
   pages:
     path: src/content/pages
     glob:
-      - "**/*.md"
-    url: /[full_slug]/
+      - '**/*.md'
     icon: web
+    url: /[full_slug]/
+    disable_url: false
     _enabled_editors:
       - visual
-    add_options:
-      - name: Add New Page
-        schema: default
-        icon: pages
-    schemas:
-      default:
-        name: New Page
-        path: .cloudcannon/schemas/page.md
-        remove_extra_inputs: false
-    create:
-      path: "[relative_base_path]/{filename|slugify|lowercase}.md"
-    new_preview_url: /
-    paths:
-      uploads: src/assets/images
     _inputs:
       title:
         type: text
         comment: Controls the metadata title for the page.
+        cascade: true
       keywords:
         type: array
         comment: Optional meta keywords for this page.
+        cascade: true
       keywords[*]:
         type: text
+        cascade: true
+    add_options:
+      - name: Add New Page
+        icon: pages
+        schema: default
+    create:
+      path: '[relative_base_path]/{filename|slugify|lowercase}.md'
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    new_preview_url: /
+    schemas:
+      default:
+        path: .cloudcannon/schemas/page.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: New Page
   blog:
     path: src/content/blog
     glob:
-      - "**/*.mdx"
+      - '**/*.mdx'
+    icon: article
     url: /blog/[full_slug]/
     disable_url: false
-    icon: article
+    _editables:
+      content:
+        allow_custom_markup: false
+        remove_custom_markup: false
+        blockquote: true
+        bold: true
+        bulletedlist: true
+        code: true
+        format: p h2 h3 h4 h5 h6
+        horizontalrule: true
+        image_size_attributes: true
+        italic: true
+        link: true
+        numberedlist: true
+        redo: true
+        removeformat: true
+        snippet: true
+        undo: true
     _enabled_editors:
       - content
       - visual
-    add_options:
-      - name: Add New Blog Post
-        schema: default
-        icon: article
-    schemas:
-      default:
-        name: New Blog Post
-        path: .cloudcannon/schemas/blog-post.mdx
-        remove_extra_inputs: false
-    create:
-      path: "[relative_base_path]/{filename|slugify|lowercase}.mdx"
-    new_preview_url: /blog/
-    paths:
-      uploads: src/assets/images
     _inputs:
       title:
         type: text
         comment: The title of the blog post.
+        cascade: true
       description:
         type: text
         comment: A brief description of the blog post.
+        cascade: true
       date:
         type: date
         comment: The publication date.
+        cascade: true
       author:
         type: text
         comment: The author of the blog post.
+        cascade: true
       image:
         type: image
-        comment: Optional image path for the blog post.
         options:
           paths:
             uploads: src/assets/images
           resize_style: contain
           width: 1920
           height: 1280
+        comment: Optional image path for the blog post.
+        cascade: true
       tags:
         type: array
         comment: Tags relevant to this post's content.
+        cascade: true
       tags[*]:
         type: text
+        cascade: true
       keywords:
         type: array
         comment: Optional meta keywords for this post.
+        cascade: true
       keywords[*]:
         type: text
-    _editables:
-      content:
-        format: p h2 h3 h4 h5 h6
-        bold: true
-        italic: true
-        link: true
-        bulletedlist: true
-        numberedlist: true
-        blockquote: true
-        code: true
-        horizontalrule: true
-        snippet: true
-        undo: true
-        redo: true
-        removeformat: true
+        cascade: true
+    add_options:
+      - name: Add New Blog Post
+        icon: article
+        schema: default
+    create:
+      path: '[relative_base_path]/{filename|slugify|lowercase}.mdx'
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    new_preview_url: /blog/
+    schemas:
+      default:
+        path: .cloudcannon/schemas/blog-post.mdx
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: New Blog Post
   data:
     path: src/data
     glob:
-      - "**/*.json"
-    disable_url: true
+      - '**/*.json'
     icon: database
+    disable_url: true
     _enabled_editors:
       - data
-    schemas:
-      seo:
-        name: SEO Settings
-        path: .cloudcannon/schemas/seo.json
-        remove_extra_inputs: false
-        preview:
-          text:
-            - SEO
-        _inputs:
-          name:
-            comment: Site name used in structured data and as the fallback brand name in SEO metadata.
-          url:
-            comment: Production site URL used for canonical links and structured data.
-          description:
-            comment: Default meta description used when a page or blog post does not provide its own description.
-          logoSource:
-            comment: Default image used for social sharing metadata when a page or blog post does not provide its own image.
-          titleFormat:
-            comment: Browser title template. Include {title} where the page title should appear.
     _inputs:
       logoSource:
         type: image
@@ -137,6 +142,7 @@ collections_config:
           resize_style: contain
           width: 1920
           height: 1280
+        cascade: true
       logoAlternateSource:
         type: image
         options:
@@ -145,6 +151,7 @@ collections_config:
           resize_style: contain
           width: 1920
           height: 1280
+        cascade: true
       image:
         type: image
         options:
@@ -153,6 +160,45 @@ collections_config:
           resize_style: contain
           width: 1920
           height: 1280
+        cascade: true
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    schemas:
+      seo:
+        path: .cloudcannon/schemas/seo.json
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: SEO Settings
+        preview:
+          text:
+            - SEO
+        _inputs:
+          name:
+            comment: >-
+              Site name used in structured data and as the fallback brand name
+              in SEO metadata.
+            cascade: true
+          url:
+            comment: Production site URL used for canonical links and structured data.
+            cascade: true
+          description:
+            comment: >-
+              Default meta description used when a page or blog post does not
+              provide its own description.
+            cascade: true
+          logoSource:
+            comment: >-
+              Default image used for social sharing metadata when a page or blog
+              post does not provide its own image.
+            cascade: true
+          titleFormat:
+            comment: >-
+              Browser title template. Include {title} where the page title
+              should appear.
+            cascade: true
 collection_groups:
   - heading: Content
     collections:
@@ -161,15 +207,19 @@ collection_groups:
   - heading: Data
     collections:
       - data
+  - heading: New Collections
+    collections: []
 _inputs:
   pageSections:
     comment: The main sections of the page.
+    cascade: true
   logoSource:
     type: image
+    cascade: true
   logoAlternateSource:
     type: image
+    cascade: true
 _select_data:
-  # Selectable UI icons match [Heroicons](https://heroicons.com/); SVGs live in src/icons/.
   icons:
     - id: academic-cap
       name: Academic Cap
@@ -857,10 +907,10 @@ _select_data:
       name: X Circle
     - id: x-mark
       name: X Mark
-
-_structures_from_glob:
-  - /.cloudcannon/structures/*.cloudcannon.structures.yml
 _snippets_imports:
   mdx: true
+timezone: Etc/UTC
+_structures_from_glob:
+  - /.cloudcannon/structures/*.cloudcannon.structures.yml
 _snippets_from_glob:
   - /**/*.cloudcannon.snippets.yml
