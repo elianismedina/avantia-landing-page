@@ -3,4 +3,8 @@ import { siteFonts } from "../../site-fonts.mjs";
 import { Font } from "astro:assets";
 ---
 
-{siteFonts.map((entry) => <Font cssVariable={entry.cssVariable} />)}
+{
+  siteFonts.map((entry) => (
+    <Font cssVariable={entry.cssVariable as "--font-body" | "--font-headings"} />
+  ))
+}

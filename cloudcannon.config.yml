@@ -2,7 +2,7 @@ collections_config:
   pages:
     path: src/content/pages
     glob:
-      - '**/*.md'
+      - "**/*.md"
     icon: web
     url: /[full_slug]/
     disable_url: false
@@ -25,7 +25,7 @@ collections_config:
         icon: pages
         schema: default
     create:
-      path: '[relative_base_path]/{filename|slugify|lowercase}.md'
+      path: "[relative_base_path]/{filename|slugify|lowercase}.md"
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
@@ -41,7 +41,7 @@ collections_config:
   blog:
     path: src/content/blog
     glob:
-      - '**/*.mdx'
+      - "**/*.mdx"
     icon: article
     url: /blog/[full_slug]/
     disable_url: false
@@ -112,7 +112,7 @@ collections_config:
         icon: article
         schema: default
     create:
-      path: '[relative_base_path]/{filename|slugify|lowercase}.mdx'
+      path: "[relative_base_path]/{filename|slugify|lowercase}.mdx"
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
@@ -128,7 +128,7 @@ collections_config:
   data:
     path: src/data
     glob:
-      - '**/*.json'
+      - "**/*.json"
     icon: database
     disable_url: true
     _enabled_editors:

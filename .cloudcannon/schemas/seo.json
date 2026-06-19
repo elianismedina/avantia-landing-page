@@ -1,7 +1,7 @@
 {
-  "name": "Astro Component Starter",
-  "url": "https://example.com",
-  "description": "Build fast, customizable Astro sites with a modern component starter that is easy to edit and maintain.",
-  "logoSource": "/src/assets/images/component-docs/acs-logo.svg",
-  "titleFormat": "{title} | Astro Component Starter"
+  "name": "Avantia Contratación Estatal",
+  "url": "https://avantiacontratacionestatal.com/",
+  "description": "Avantia Contratación Estatal: Tu aliado en licitaciones públicas. Expertos en derecho administrativo, acompañamiento integral y estrategia legal para ganar contratos con el Estado.",
+  "logoSource": "/src/assets/images/component-docs/LogoAvantia.svg",
+  "titleFormat": "{title} | Avantia Contratación Estatal"
 }
