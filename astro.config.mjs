@@ -6,7 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import mdx from "@astrojs/mdx";
-import node from "@astrojs/node";
+import node from "@apphosting/astro-adapter";
 
 import { siteFonts } from "./site-fonts.mjs";
 

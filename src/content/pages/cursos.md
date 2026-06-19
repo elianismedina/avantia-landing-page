@@ -61,7 +61,7 @@ pageSections:
                 singleOpen: true
                 openFirst: true
                 items:
-                  - title: "Módulo 1: Fundamentos del Sistema y Marco Jurídico (10 Horas)"
+                  - title: 'Módulo 1: Fundamentos del Sistema y Marco Jurídico (10 Horas)'
                     contentSections:
                       - _component: building-blocks/core-elements/text
                         text: |
@@ -72,7 +72,7 @@ pageSections:
                           * Requisitos jurídicos, inhabilidades, consorcios y uniones temporales.
                           * Análisis de pliegos de condiciones, adendas y mitigación de los 10 errores más comunes por los que se rechazan ofertas.
                         size: md
-                  - title: "Módulo 2: Gestión Práctica de las Modalidades de Selección (10 Horas)"
+                  - title: 'Módulo 2: Gestión Práctica de las Modalidades de Selección (10 Horas)'
                     contentSections:
                       - _component: building-blocks/core-elements/text
                         text: |
@@ -83,7 +83,7 @@ pageSections:
                           * Alta Complejidad: Concurso de Méritos Abiertos (CMA) y Licitación Pública (LP).
                           * Taller Práctico 1 & 2: Simulación en tiempo real de sorteos, presentación de ofertas y participación en una Subasta Inversa Electrónica Real.
                         size: md
-                  - title: "Módulo 3: Evaluación de Ofertas y Mesa de Servicio (4 Horas)"
+                  - title: 'Módulo 3: Evaluación de Ofertas y Mesa de Servicio (4 Horas)'
                     contentSections:
                       - _component: building-blocks/core-elements/text
                         text: |
@@ -94,7 +94,7 @@ pageSections:
                           * Gestión del riesgo ante "Precios Artificialmente Bajos" y descarte técnico de competidores.
                           * Mesa de Servicio: Protocolo de contingencia y obtención del Certificado de Indisponibilidad (GLPI) de SECOP II.
                         size: md
-                  - title: "Módulo 4: Analítica de Datos e Inteligencia Artificial aplicada (8 Horas)"
+                  - title: 'Módulo 4: Analítica de Datos e Inteligencia Artificial aplicada (8 Horas)'
                     contentSections:
                       - _component: building-blocks/core-elements/text
                         text: |
@@ -105,7 +105,7 @@ pageSections:
                           * Análisis del Plan Anual de Adquisiciones (PAA) para proyectar el sector objetivo de tu empresa.
                           * Incorporación de IA: Uso de herramientas de Inteligencia Artificial para el monitoreo predictivo de procesos contractuales y análisis del mercado histórico.
                         size: md
-                  - title: "Módulo 5: Ejecución Contractual y Cierre (8 Horas)"
+                  - title: 'Módulo 5: Ejecución Contractual y Cierre (8 Horas)'
                     contentSections:
                       - _component: building-blocks/core-elements/text
                         text: |
@@ -173,18 +173,18 @@ pageSections:
     backgroundColor: base
     paddingVertical: 2xl
     features:
-      - title: "Enfoque 100% Práctico"
-        description: "Combina 5 talleres interactivos sobre plataformas reales y herramientas de IA con la teoría jurídica esencial."
-        iconName: "academic-cap"
-        iconColor: "blue"
-      - title: "Estrategia Comercial"
-        description: "No solo te enseña a postularte, sino a encontrar las mejores oportunidades mediante la analítica de datos."
-        iconName: "chart-bar"
-        iconColor: "green"
-      - title: "Seguridad Jurídica"
-        description: "Aprende a blindar tus ofertas evitando las causales de rechazo más recurrentes del mercado colombiano."
-        iconName: "shield-check"
-        iconColor: "indigo"
+      - title: 'Enfoque 100% Práctico'
+        description: 'Combina 5 talleres interactivos sobre plataformas reales y herramientas de IA con la teoría jurídica esencial.'
+        iconName: 'academic-cap'
+        iconColor: 'blue'
+      - title: 'Estrategia Comercial'
+        description: 'No solo te enseña a postularte, sino a encontrar las mejores oportunidades mediante la analítica de datos.'
+        iconName: 'chart-bar'
+        iconColor: 'green'
+      - title: 'Seguridad Jurídica'
+        description: 'Aprende a blindar tus ofertas evitando las causales de rechazo más recurrentes del mercado colombiano.'
+        iconName: 'shield-check'
+        iconColor: 'indigo'
   - _component: page-sections/ctas/cta-form
     heading: Obtén el pensum completo en PDF
     subtext: >-
