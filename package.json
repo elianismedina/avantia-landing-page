@@ -90,6 +90,7 @@
   "overrides": {
     "@apphosting/astro-adapter": {
       "@astrojs/node": "$@astrojs/node"
-    }
+    },
+    "keyv": "^5.6.0"
   }
 }
