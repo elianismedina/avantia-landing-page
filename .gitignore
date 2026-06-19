@@ -32,5 +32,6 @@ yarn-error.log*
 *.tmp
 *.temp
 
-# apphosting build output
+# apphosting build output and config
 .apphosting/
+apphosting.yaml
