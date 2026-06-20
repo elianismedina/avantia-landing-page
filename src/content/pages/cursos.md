@@ -186,6 +186,7 @@ pageSections:
         iconName: 'shield-check'
         iconColor: 'indigo'
   - _component: page-sections/ctas/cta-form
+    id: contacto
     heading: Obtén el pensum completo en PDF
     subtext: >-
       ¿Quieres compartir esta información con tu equipo o necesitas un temario personalizado para tu empresa? Déjanos tus datos y te lo enviaremos de inmediato.
