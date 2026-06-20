@@ -29,6 +29,10 @@ export default defineConfig({
         }),
       }),
   site: "https://www.avantia.com.co",
+  redirects: {
+    "/contactanos": "/#contacto",
+    "/favicon.ico": "/favicon.svg",
+  },
   fonts: siteFonts,
   build: {
     inlineStylesheets: "always",
