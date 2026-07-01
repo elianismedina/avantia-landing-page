@@ -14,8 +14,6 @@ import { debugLog } from "../constants";
 import type { ComponentInfo, ComponentMetadata, ComponentNode } from "../types";
 import type { BuilderNode } from "./shared";
 import { generateAstroFile } from "./export/astroGenerator";
-import { generateCloudCannonInputs } from "./export/cloudcannonGenerator";
-import { generateStructureValue } from "./export/structureValueGenerator";
 import { cleanComponentTree } from "./export/treeHelpers";
 
 /** Generate preview strings without downloading. */
@@ -38,20 +36,8 @@ export function generateExportPreview(
       nestedBlockProperties,
       componentTree as BuilderNode[]
     ),
-    inputs: generateCloudCannonInputs(
-      cleanTree,
-      components,
-      metadataMap,
-      componentTree as BuilderNode[]
-    ),
-    structureValue: generateStructureValue(
-      cleanTree,
-      componentName,
-      components,
-      componentTree as BuilderNode[],
-      componentPath,
-      metadataMap
-    ),
+    inputs: "",
+    structureValue: "",
   };
 }
 
@@ -77,28 +63,10 @@ export async function generateExport(
     componentTree as BuilderNode[]
   );
 
-  const inputsYaml = generateCloudCannonInputs(
-    cleanTree,
-    components,
-    metadataMap,
-    componentTree as BuilderNode[]
-  );
-
-  const structureValueYaml = generateStructureValue(
-    cleanTree,
-    componentName,
-    components,
-    componentTree as BuilderNode[],
-    componentPath,
-    metadataMap
-  );
-
   const zip = new JSZip();
   const pascalName = toPascalCase(componentName);
 
   zip.file(`${pascalName}.astro`, astroCode);
-  zip.file(`${componentName}.cloudcannon.inputs.yml`, inputsYaml);
-  zip.file(`${componentName}.cloudcannon.structure-value.yml`, structureValueYaml);
 
   const blob = await zip.generateAsync({ type: "blob" });
   const url = URL.createObjectURL(blob);
@@ -111,5 +79,4 @@ export async function generateExport(
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 
-  debugLog("Export completed successfully");
 }

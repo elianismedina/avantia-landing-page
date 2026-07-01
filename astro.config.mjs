@@ -1,5 +1,6 @@
 import sitemap from "@astrojs/sitemap";
-import editableRegions from "@cloudcannon/editable-regions/astro-integration";
+import react from "@astrojs/react";
+import keystatic from "@keystatic/astro";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 import path from "node:path";
@@ -10,6 +11,8 @@ import node from "@apphosting/astro-adapter";
 import { createRequire } from "node:module";
 
 import { siteFonts } from "./site-fonts.mjs";
+
+import markdoc from "@astrojs/markdoc";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -70,89 +73,100 @@ export default defineConfig({
   image: {
     domains: [],
   },
-  integrations: [
-    ...(isTest
-      ? []
-      : [
-          {
-            name: "apphosting-astro-node-bridge",
-            hooks: {
-              "astro:config:setup": ({ updateConfig, config }) => {
+  integrations: [...(isTest
+    ? []
+    : [
+        {
+          name: "clean-apphosting-directory",
+          hooks: {
+            "astro:build:start": async () => {
+              const fs = await import("node:fs/promises");
+
+              try {
+                await fs.rm("./.apphosting", { recursive: true, force: true });
+              } catch (e) {
+                // ignore
+              }
+            },
+          },
+        },
+        {
+          name: "apphosting-astro-node-bridge",
+          hooks: {
+            "astro:config:setup": ({ updateConfig, config }) => {
+              updateConfig({
+                vite: {
+                  plugins: [
+                    createConfigPlugin({
+                      mode: "standalone",
+                      client: config.build.client?.toString(),
+                      server: config.build.server?.toString(),
+                      host: config.server.host,
+                      port: config.server.port,
+                      staticHeaders: false,
+                      bodySizeLimit: 1024 * 1024 * 1024,
+                      experimentalDisableStreaming: false,
+                    }),
+                  ],
+                },
+              });
+            },
+          },
+        },
+        {
+          name: "builder-preview-dev-only",
+          hooks: {
+            "astro:config:setup": ({ command, injectRoute, updateConfig }) => {
+              if (command === "dev") {
+                injectRoute({
+                  pattern: "/component-docs/builder-preview",
+                  entrypoint: "./src/component-docs/pages/builder-preview.astro",
+                  prerender: false,
+                });
                 updateConfig({
-                  vite: {
-                    plugins: [
-                      createConfigPlugin({
-                        mode: "standalone",
-                        client: config.build.client?.toString(),
-                        server: config.build.server?.toString(),
-                        host: config.server.host,
-                        port: config.server.port,
-                        staticHeaders: false,
-                        bodySizeLimit: 1024 * 1024 * 1024,
-                        experimentalDisableStreaming: false,
-                      }),
-                    ],
+                  adapter: {
+                    name: "dev-only-server-preview",
+                    serverEntrypoint: "",
+                    supportedAstroFeatures: {
+                      serverOutput: "stable",
+                      staticOutput: "stable",
+                      hybridOutput: "stable",
+                      sharpImageService: "stable",
+                    },
                   },
                 });
-              },
+              }
             },
           },
-          {
-            name: "builder-preview-dev-only",
-            hooks: {
-              "astro:config:setup": ({ command, injectRoute, updateConfig }) => {
-                if (command === "dev") {
-                  injectRoute({
-                    pattern: "/component-docs/builder-preview",
-                    entrypoint: "./src/component-docs/pages/builder-preview.astro",
-                    prerender: false,
-                  });
-                  updateConfig({
-                    adapter: {
-                      name: "dev-only-server-preview",
-                      serverEntrypoint: "",
-                      supportedAstroFeatures: {
-                        serverOutput: "stable",
-                        staticOutput: "stable",
-                        hybridOutput: "stable",
-                        sharpImageService: "stable",
-                      },
-                    },
-                  });
-                }
-              },
-            },
-          },
-          editableRegions(),
-          icon({
-            iconDir: path.resolve(__dirname, "src/icons"),
-            svgoOptions: {
-              plugins: [
-                {
-                  name: "preset-default",
-                  params: {
-                    overrides: {
-                      cleanupIds: false,
-                    },
+        },
+        keystatic(),
+        icon({
+          iconDir: path.resolve(__dirname, "src/icons"),
+          svgoOptions: {
+            plugins: [
+              {
+                name: "preset-default",
+                params: {
+                  overrides: {
+                    cleanupIds: false,
                   },
                 },
-              ],
-            },
-          }),
-          sitemap({
-            filter: (page) => {
-              if (page.endsWith("/404") || page.endsWith("/404.html")) {
-                return false;
-              }
-              if (page.includes("/component-docs")) {
-                return false;
-              }
-              return true;
-            },
-          }),
-        ]),
-    mdx(),
-  ],
+              },
+            ],
+          },
+        }),
+        sitemap({
+          filter: (page) => {
+            if (page.endsWith("/404") || page.endsWith("/404.html")) {
+              return false;
+            }
+            if (page.includes("/component-docs")) {
+              return false;
+            }
+            return true;
+          },
+        }),
+      ]), mdx(), react(), markdoc()],
   vite: {
     build: {
       minify: "esbuild",

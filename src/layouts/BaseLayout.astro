@@ -63,12 +63,7 @@ const props = Astro.props;
       ) : null
     }
 
-    <script>
-      if (window.inEditorMode) {
-        import("../../live-editing");
-        import("../../editor-live-sync");
-      }
-    </script>
+
 
     <SeoHead
       site={seoData}

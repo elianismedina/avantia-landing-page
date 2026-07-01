@@ -3,24 +3,66 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@building-blocks/*": ["src/components/building-blocks/*"],
-      "@core-elements/*": ["src/components/building-blocks/core-elements/*"],
-      "@forms/*": ["src/components/building-blocks/forms/*"],
-      "@wrappers/*": ["src/components/building-blocks/wrappers/*"],
-      "@navigation/*": ["src/components/navigation/*"],
-      "@page-sections/*": ["src/components/page-sections/*"],
-      "@features/*": ["src/components/page-sections/features/*"],
-      "@builders/*": ["src/components/page-sections/builders/*"],
-      "@component-utils/*": ["src/components/utils/*"],
-      "@component-docs/*": ["src/component-docs/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@styles/*": ["src/styles/*"],
-      "@data/*": ["src/data/*"],
-      "@content/*": ["src/content/*"],
-      "@assets/*": ["src/assets/*"]
-    }
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@building-blocks/*": [
+        "src/components/building-blocks/*"
+      ],
+      "@core-elements/*": [
+        "src/components/building-blocks/core-elements/*"
+      ],
+      "@forms/*": [
+        "src/components/building-blocks/forms/*"
+      ],
+      "@wrappers/*": [
+        "src/components/building-blocks/wrappers/*"
+      ],
+      "@navigation/*": [
+        "src/components/navigation/*"
+      ],
+      "@page-sections/*": [
+        "src/components/page-sections/*"
+      ],
+      "@features/*": [
+        "src/components/page-sections/features/*"
+      ],
+      "@builders/*": [
+        "src/components/page-sections/builders/*"
+      ],
+      "@component-utils/*": [
+        "src/components/utils/*"
+      ],
+      "@component-docs/*": [
+        "src/component-docs/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@data/*": [
+        "src/data/*"
+      ],
+      "@content/*": [
+        "src/content/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   },
-  "include": [".astro/types.d.ts", "src/**/*", "vitest.config.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    ".astro/types.d.ts",
+    "src/**/*",
+    "vitest.config.ts",
+    "keystatic.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
