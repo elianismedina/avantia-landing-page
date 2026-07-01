@@ -1,7 +1,16 @@
 import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
 
-const contentBlockSchema = z.object({ _component: z.string() }).passthrough();
+const contentBlockSchema = z.union([
+  z.object({
+    discriminant: z.string(),
+    value: z.object({ _component: z.string() }).passthrough(),
+  }).transform(val => ({
+    ...val.value,
+    _component: val.discriminant
+  })),
+  z.object({ _component: z.string() }).passthrough(),
+]);
 const docsViewerSizeSchema = z.enum(["sm", "md", "lg", "xl"]);
 
 const pageSchema = z.object({
