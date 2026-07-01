@@ -12,3 +12,10 @@ env:
     value: "appYOQPX3ZUufLWbs"
   - variable: AIRTABLE_TABLE_NAME
     value: "tblx5jtaQDsgqZICZ"
+  - variable: KEYSTATIC_GITHUB_CLIENT_ID
+    secret: KEYSTATIC_GITHUB_CLIENT_ID
+  - variable: KEYSTATIC_GITHUB_CLIENT_SECRET
+    secret: KEYSTATIC_GITHUB_CLIENT_SECRET
+  - variable: KEYSTATIC_SECRET
+    secret: KEYSTATIC_SECRET
+
