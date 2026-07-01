@@ -8,8 +8,12 @@
       "path": "/"
     },
     {
-      "name": "Cursos",
-      "path": "/cursos/"
+      "name": "Para Personas",
+      "path": "/personas/"
+    },
+    {
+      "name": "Para Empresas",
+      "path": "/empresas/"
     },
     {
       "name": "¿Por qué nosotros?",

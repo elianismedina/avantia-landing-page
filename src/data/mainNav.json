@@ -10,9 +10,20 @@
       "children": []
     },
     {
-      "name": "Cursos",
-      "path": "/cursos/",
-      "children": []
+      "name": "Nuestra Oferta",
+      "path": "/oferta/",
+      "children": [
+        {
+          "name": "Para Personas",
+          "path": "/personas/",
+          "children": []
+        },
+        {
+          "name": "Para Empresas",
+          "path": "/empresas/",
+          "children": []
+        }
+      ]
     },
     {
       "name": "¿Por qué nosotros?",

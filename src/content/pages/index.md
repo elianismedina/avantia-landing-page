@@ -3,6 +3,16 @@ _schema: default
 title: Inicio
 description: >-
   Domina las licitaciones públicas y vende al Estado de forma exitosa. Cursos de contratación pública prácticos con expertos activos.
+schemaData:
+  - "@context": "https://schema.org"
+    "@type": "EducationalOrganization"
+    "name": "Avantia Academia"
+    "description": "Aprende a venderle al Estado. Cursos prácticos y consultoría en contratación pública y licitaciones estatales en Hispanoamérica."
+    "url": "https://avantia.edu.co"
+    "logo": "https://avantia.edu.co/favicon.svg"
+    "address":
+      "@type": "PostalAddress"
+      "addressCountry": "CO"
 pageSections:
   - _component: page-sections/heroes/hero-split
     eyebrow: Academia de Contratación Estatal
@@ -15,9 +25,9 @@ pageSections:
     imageAspectRatio: square
     buttonSections:
       - _component: building-blocks/core-elements/button
-        text: Explorar Cursos
+        text: Ver Programas
         hideText: false
-        link: '/cursos/'
+        link: '/personas/'
         iconName: ''
         iconPosition: before
         variant: primary
@@ -73,9 +83,9 @@ pageSections:
       Descubre cómo funciona el sistema de compras estatales de principio a fin, cómo analizar pliegos de condiciones y cómo construir una oferta técnica y económica imbatible sin necesidad de ser abogado.
     buttonSections:
       - _component: building-blocks/core-elements/button
-        text: Ver Plan de Estudios
+        text: Ver Programas
         hideText: false
-        link: '/cursos/'
+        link: '/personas/'
         iconName: ''
         iconPosition: before
         variant: primary

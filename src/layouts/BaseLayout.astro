@@ -22,6 +22,7 @@ export interface Props {
     tags?: string[] | null;
   } | null;
   noindex?: boolean;
+  schemaData?: Record<string, any>[] | Record<string, any> | null;
 }
 
 const props = Astro.props;
@@ -82,6 +83,15 @@ const props = Astro.props;
     />
 
     <StructuredData site={seoData} />
+
+    {
+      props.schemaData && (Array.isArray(props.schemaData) ? props.schemaData : [props.schemaData]).map((schema) => (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(schema)}
+        />
+      ))
+    }
 
     <link
       rel="sitemap"

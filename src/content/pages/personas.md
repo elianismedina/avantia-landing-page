@@ -1,13 +1,30 @@
 ---
 _schema: default
-title: Cursos
-description: Conoce nuestros cursos y programas de capacitación en contratación y licitaciones públicas.
+title: Formación para Personas
+description: Conoce nuestros cursos y programas de capacitación en contratación y licitaciones públicas para profesionales y personas naturales.
+schemaData:
+  - "@context": "https://schema.org"
+    "@type": "Course"
+    "name": "Contratación Pública y SECOP II (Formación integral)"
+    "description": "Domina la normativa, requisitos jurídicos, pliegos de condiciones y la plataforma transaccional de compras públicas en Colombia."
+    "provider":
+      "@type": "Organization"
+      "name": "Avantia Academia"
+      "url": "https://avantia.edu.co"
+  - "@context": "https://schema.org"
+    "@type": "Course"
+    "name": "Taller Práctico de Portales"
+    "description": "Simulación y carga real de ofertas de contratación con simulacros bajo presión."
+    "provider":
+      "@type": "Organization"
+      "name": "Avantia Academia"
+      "url": "https://avantia.edu.co"
 pageSections:
   - _component: page-sections/heroes/hero-center
-    eyebrow: Formación Profesional
-    heading: Programas y Cursos de Contratación Estatal
+    eyebrow: Crecimiento Profesional
+    heading: Programas y Cursos para Profesionales y Consultores
     subtext: >-
-      Capacitación práctica orientada a resultados. Selecciona uno de nuestros cursos a continuación para ver su plan de estudio detallado.
+      Capacitación práctica orientada a resultados. Domina las compras públicas, certifícate y destaca en el mercado laboral o como consultor independiente.
     buttonSections:
       - _component: building-blocks/core-elements/button
         text: Ver Plan de Estudio
@@ -102,7 +119,7 @@ pageSections:
 
                           **Temas Clave:**
                           * Extracción masiva en Datos Abiertos y visualización del Cubo de Gasto.
-                          * Análisis del Plan Anual de Adquisiciones (PAA) para proyectar el sector objetivo de tu empresa.
+                          * Análisis del Plan Anual de Adquisiciones (PAA) para proyectar el sector objetivo de tu empresa o clientes.
                           * Incorporación de IA: Uso de herramientas de Inteligencia Artificial para el monitoreo predictivo de procesos contractuales y análisis del mercado histórico.
                         size: md
                   - title: 'Módulo 5: Ejecución Contractual y Cierre (8 Horas)'
@@ -132,7 +149,7 @@ pageSections:
                   - title: Módulo 1 - Configuración y Registro
                     contentSections:
                       - _component: building-blocks/core-elements/text
-                        text: Creación de usuario, configuración de la firma digital, configuración del perfil de la empresa y seguridad del portal.
+                        text: Creación de usuario, configuración de la firma digital, configuración del perfil del proponente y seguridad del portal.
                         size: md
                   - title: Módulo 2 - Simulación y Carga de Ofertas
                     contentSections:
@@ -168,28 +185,28 @@ pageSections:
     backgroundColor: surface
   - _component: page-sections/features/feature-grid
     eyebrow: Beneficios
-    heading: ¿Por qué tomar este Programa?
-    subtext: Optimiza tus oportunidades de negocio con el Estado colombiano mediante un enfoque práctico, comercial y seguro.
+    heading: ¿Por qué capacitarte con nosotros?
+    subtext: Optimiza tus oportunidades de crecimiento profesional y laboral con un enfoque práctico, técnico y seguro.
     backgroundColor: base
     paddingVertical: 2xl
     features:
       - title: 'Enfoque 100% Práctico'
-        description: 'Combina 5 talleres interactivos sobre plataformas reales y herramientas de IA con la teoría jurídica esencial.'
+        description: 'Aprende a través de simulaciones en portales reales del Estado y herramientas modernas de IA.'
         iconName: 'academic-cap'
         iconColor: 'blue'
-      - title: 'Estrategia Comercial'
-        description: 'No solo te enseña a postularte, sino a encontrar las mejores oportunidades mediante la analítica de datos.'
+      - title: 'Alta Empleabilidad'
+        description: 'El conocimiento transaccional y estratégico en contratación es una de las habilidades más demandadas hoy.'
         iconName: 'chart-bar'
         iconColor: 'green'
-      - title: 'Seguridad Jurídica'
-        description: 'Aprende a blindar tus ofertas evitando las causales de rechazo más recurrentes del mercado colombiano.'
+      - title: 'Certificación de Valor'
+        description: 'Recibe una certificación al finalizar que respalda tus conocimientos prácticos ante empresas y clientes.'
         iconName: 'shield-check'
         iconColor: 'indigo'
   - _component: page-sections/ctas/cta-form
     id: contacto
     heading: Obtén el pensum completo en PDF
     subtext: >-
-      ¿Quieres compartir esta información con tu equipo o necesitas un temario personalizado para tu empresa? Déjanos tus datos y te lo enviaremos de inmediato.
+      ¿Quieres impulsar tu carrera profesional? Déjanos tus datos y te enviaremos el plan de estudios detallado de inmediato.
     formAction: /api/contact
     formBlocks:
       - _component: building-blocks/forms/input
@@ -207,56 +224,26 @@ pageSections:
         name: telefono
         type: tel
         required: true
-      - _component: building-blocks/forms/input
-        label: Nombre de la Empresa
-        name: empresa
-        type: text
-        required: true
       - _component: building-blocks/forms/select
-        label: Sector Económico
-        name: sector
-        placeholder: Selecciona tu sector
+        label: ¿A qué te dedicas?
+        name: ocupacion
+        placeholder: Selecciona tu perfil profesional
         required: true
         options:
-          - label: Comercio
-            value: comercio
-          - label: Finanzas y seguros
-            value: finanzas_seguros
-          - label: Transporte y turismo
-            value: transporte_turismo
-          - label: Agricultura y Agroindustria
-            value: agricultura_agroindustria
-          - label: Minería y Energía
-            value: mineria_energia
-          - label: Industria manufacturera
-            value: industria_manufacturera
-          - label: Construcción
-            value: construccion
+          - label: Consultor Independiente
+            value: consultor
+          - label: Empleado en área de compras/licitaciones
+            value: empleado
+          - label: Abogado / Asesor Jurídico
+            value: abogado
+          - label: Estudiante o recién graduado
+            value: estudiante
           - label: Otro
             value: otro
-      - _component: building-blocks/forms/input
-        label: ¿Cuál es tu sector económico?
-        name: sector_otro
-        type: text
-        required: false
-      - _component: building-blocks/forms/select
-        label: Personas a Capacitar
-        name: personas_capacitar
-        placeholder: ¿Cuántas personas deseas capacitar?
-        required: true
-        options:
-          - label: 1 persona (Solo yo)
-            value: '1'
-          - label: 2 a 5 personas
-            value: 2-5
-          - label: 6 a 10 personas
-            value: 6-10
-          - label: Más de 10 personas
-            value: 10+
       - _component: building-blocks/forms/textarea
-        label: Expectativas del curso
+        label: ¿Qué esperas lograr?
         name: expectativas
-        placeholder: ¿Qué esperas aprender o lograr con esta capacitación?
+        placeholder: Cuéntanos tus metas con esta capacitación...
         required: true
       - _component: building-blocks/forms/submit
         text: Solicitar Pensum

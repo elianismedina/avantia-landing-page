@@ -26,6 +26,7 @@ type Props = {
     };
     pageSections?: ContentBlock[];
     noindex?: boolean;
+    schemaData?: Record<string, any>[] | Record<string, any> | null;
   };
   title?: string;
   description?: string;
@@ -43,6 +44,7 @@ type Props = {
   disablePagefind?: boolean;
   mainNav?: Record<string, unknown>;
   footer?: Record<string, unknown>;
+  schemaData?: Record<string, any>[] | Record<string, any> | null;
 };
 
 const {
@@ -58,6 +60,7 @@ const {
   disablePagefind = false,
   mainNav = mainNavData,
   footer = footerData,
+  schemaData: schemaDataProp,
 } = Astro.props as Props;
 
 const title = frontmatter?.title ?? titleProp ?? "";
@@ -68,6 +71,7 @@ const canonical = frontmatter?.canonical ?? canonicalProp;
 const type = frontmatter?.type ?? typeProp;
 const article = frontmatter?.article ?? articleProp;
 const noindex = frontmatter?.noindex ?? noindexProp ?? false;
+const schemaData = frontmatter?.schemaData ?? schemaDataProp;
 const sections = frontmatter?.pageSections ?? [];
 ---
 
@@ -80,6 +84,7 @@ const sections = frontmatter?.pageSections ?? [];
   type={type}
   article={article}
   noindex={noindex}
+  schemaData={schemaData}
 >
   {mainNav.themeToggle && <ThemeToggleScript slot="head" />}
   <MainNavigation {...mainNav} />
