@@ -69,6 +69,20 @@ export default defineConfig({
   },
   security: {
     checkOrigin: false,
+    allowedDomains: [
+      {
+        protocol: "https",
+        hostname: "avantia.com.co",
+      },
+      {
+        protocol: "https",
+        hostname: "www.avantia.com.co",
+      },
+      {
+        protocol: "https",
+        hostname: "**.hosted.app",
+      },
+    ],
   },
   image: {
     domains: [],
