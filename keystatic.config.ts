@@ -47,10 +47,29 @@ const formBlockSchema = fields.object({
   ),
 });
 
+const backgroundSchema = fields.object({
+  type: fields.text({ label: "Type", defaultValue: "image" }),
+  positionVertical: fields.text({ label: "Position Vertical", defaultValue: "top" }),
+  positionHorizontal: fields.text({ label: "Position Horizontal", defaultValue: "center" }),
+  priority: fields.checkbox({ label: "Priority", defaultValue: false }),
+  imageSource: fields.text({ label: "Image Source" }),
+  imageAlt: fields.text({ label: "Image Alt" }),
+  videoSource: fields.text({ label: "Video Source" }),
+  overlay: fields.number({ label: "Overlay", defaultValue: 0 }),
+});
+
+const commonFields = {
+  sectionLabel: fields.text({ label: "Section Label" }),
+  maxContentWidth: fields.text({ label: "Max Content Width", defaultValue: "2xl" }),
+  paddingHorizontal: fields.text({ label: "Padding Horizontal", defaultValue: "lg" }),
+  background: backgroundSchema,
+};
+
 const heroSplitBlock = {
   label: "Hero Split",
   schema: fields.object({
     _component: fields.text({ label: "Component", defaultValue: "page-sections/heroes/hero-split" }),
+    ...commonFields,
     eyebrow: fields.text({ label: "Eyebrow" }),
     heading: fields.text({ label: "Heading" }),
     subtext: fields.text({ label: "Subtext", multiline: true }),
@@ -72,6 +91,7 @@ const heroCenterBlock = {
   label: "Hero Center",
   schema: fields.object({
     _component: fields.text({ label: "Component", defaultValue: "page-sections/heroes/hero-center" }),
+    ...commonFields,
     eyebrow: fields.text({ label: "Eyebrow" }),
     heading: fields.text({ label: "Heading" }),
     subtext: fields.text({ label: "Subtext", multiline: true }),
@@ -89,6 +109,7 @@ const featureGridBlock = {
   label: "Feature Grid",
   schema: fields.object({
     _component: fields.text({ label: "Component", defaultValue: "page-sections/features/feature-grid" }),
+    ...commonFields,
     eyebrow: fields.text({ label: "Eyebrow" }),
     heading: fields.text({ label: "Heading" }),
     subtext: fields.text({ label: "Subtext", multiline: true }),
@@ -117,6 +138,7 @@ const featureSplitBlock = {
   label: "Feature Split",
   schema: fields.object({
     _component: fields.text({ label: "Component", defaultValue: "page-sections/features/feature-split" }),
+    ...commonFields,
     eyebrow: fields.text({ label: "Eyebrow" }),
     heading: fields.text({ label: "Heading" }),
     subtext: fields.text({ label: "Subtext", multiline: true }),
@@ -139,6 +161,7 @@ const featureSliderBlock = {
   label: "Feature Slider",
   schema: fields.object({
     _component: fields.text({ label: "Component", defaultValue: "page-sections/features/feature-slider" }),
+    ...commonFields,
     eyebrow: fields.text({ label: "Eyebrow" }),
     heading: fields.text({ label: "Heading" }),
     subtext: fields.text({ label: "Subtext", multiline: true }),
@@ -163,6 +186,8 @@ const faqSectionBlock = {
   label: "FAQ Section",
   schema: fields.object({
     _component: fields.text({ label: "Component", defaultValue: "page-sections/info-blocks/faq-section" }),
+    sectionLabel: fields.text({ label: "Section Label" }),
+    background: backgroundSchema,
     heading: fields.text({ label: "Heading" }),
     headingLevel: fields.text({ label: "Heading Level", defaultValue: "h2" }),
     headingSize: fields.text({ label: "Heading Size", defaultValue: "lg" }),
@@ -200,6 +225,8 @@ const testimonialSectionBlock = {
   label: "Testimonial Section",
   schema: fields.object({
     _component: fields.text({ label: "Component", defaultValue: "page-sections/people/testimonial-section" }),
+    sectionLabel: fields.text({ label: "Section Label" }),
+    background: backgroundSchema,
     text: fields.text({ label: "Text", multiline: true }),
     authorName: fields.text({ label: "Author Name" }),
     authorDescription: fields.text({ label: "Author Description" }),
@@ -217,6 +244,7 @@ const ctaFormBlock = {
   label: "CTA Form",
   schema: fields.object({
     _component: fields.text({ label: "Component", defaultValue: "page-sections/ctas/cta-form" }),
+    ...commonFields,
     id: fields.text({ label: "Section ID" }),
     heading: fields.text({ label: "Heading" }),
     subtext: fields.text({ label: "Subtext", multiline: true }),
@@ -238,6 +266,7 @@ const ctaCenterBlock = {
   label: "CTA Center",
   schema: fields.object({
     _component: fields.text({ label: "Component", defaultValue: "page-sections/ctas/cta-center" }),
+    ...commonFields,
     heading: fields.text({ label: "Heading" }),
     subtext: fields.text({ label: "Subtext", multiline: true }),
     colorScheme: fields.text({ label: "Color Scheme", defaultValue: "inherit" }),
@@ -256,6 +285,7 @@ const ctaSplitBlock = {
   label: "CTA Split",
   schema: fields.object({
     _component: fields.text({ label: "Component", defaultValue: "page-sections/ctas/cta-split" }),
+    ...commonFields,
     heading: fields.text({ label: "Heading" }),
     subtext: fields.text({ label: "Subtext", multiline: true }),
     colorScheme: fields.text({ label: "Color Scheme", defaultValue: "inherit" }),
@@ -271,6 +301,8 @@ const customSectionBlock = {
   label: "Custom Section",
   schema: fields.object({
     _component: fields.text({ label: "Component", defaultValue: "page-sections/builders/custom-section" }),
+    sectionLabel: fields.text({ label: "Section Label" }),
+    background: backgroundSchema,
     label: fields.text({ label: "Label" }),
     maxContentWidth: fields.text({ label: "Max Content Width", defaultValue: "lg" }),
     paddingHorizontal: fields.text({ label: "Padding Horizontal", defaultValue: "lg" }),
