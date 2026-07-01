@@ -19,14 +19,33 @@ const { createConfigPlugin } = require(pluginPath);
 
 const isTest = typeof process !== "undefined" && !!process.env.VITEST;
 
+const customAppHostingAdapter = (() => {
+  const integration = node({
+    mode: "standalone",
+  });
+  const originalConfigDone = integration.hooks["astro:config:done"];
+
+  integration.hooks["astro:config:done"] = (params) => {
+    const originalSetAdapter = params.setAdapter;
+
+    params.setAdapter = (adapter) => {
+      originalSetAdapter({
+        ...adapter,
+        entrypointResolution: "auto",
+      });
+    };
+
+    originalConfigDone(params);
+  };
+  return integration;
+})();
+
 // https://astro.build/config
 export default defineConfig({
   ...(isTest
     ? {}
     : {
-        adapter: node({
-          mode: "standalone",
-        }),
+        adapter: customAppHostingAdapter,
       }),
   site: "https://www.avantia.com.co",
   redirects: {
