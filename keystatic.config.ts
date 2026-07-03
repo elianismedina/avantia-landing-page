@@ -368,9 +368,11 @@ export default config({
     process.env.NODE_ENV === "development"
       ? { kind: "local" }
       : {
-          kind: "github",
-          repo: "elianismedina/avantia-landing-page",
+          kind: "cloud",
         },
+  cloud: {
+    project: process.env.PUBLIC_KEYSTATIC_PROJECT || "avantia-landing-page/avantia-landing-page",
+  },
   collections: {
     pages: collection({
       label: "Pages",

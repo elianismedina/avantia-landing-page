@@ -18,4 +18,5 @@ env:
     secret: KEYSTATIC_GITHUB_CLIENT_SECRET
   - variable: KEYSTATIC_SECRET
     secret: KEYSTATIC_SECRET
-
+  - variable: PUBLIC_KEYSTATIC_PROJECT
+    value: "avantia-landing-page/avantia-landing-page"
