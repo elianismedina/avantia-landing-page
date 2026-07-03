@@ -45,6 +45,14 @@ const formBlockSchema = fields.object({
       itemLabel: (props) => props.fields.label.value || "Option",
     }
   ),
+  text: fields.text({ label: "Text" }),
+  variant: fields.text({ label: "Variant" }),
+  size: fields.text({ label: "Size" }),
+  iconName: fields.text({ label: "Icon Name" }),
+  iconColor: fields.text({ label: "Icon Color" }),
+  iconPosition: fields.text({ label: "Icon Position" }),
+  hideText: fields.checkbox({ label: "Hide Text" }),
+  disabled: fields.checkbox({ label: "Disabled" }),
 });
 
 const backgroundSchema = fields.object({
@@ -76,6 +84,7 @@ const heroSplitBlock = {
     imageSource: fields.text({ label: "Image Source" }),
     imageAlt: fields.text({ label: "Image Alt" }),
     imageAspectRatio: fields.text({ label: "Image Aspect Ratio", defaultValue: "square" }),
+    fixedWidth: fields.text({ label: "Fixed Width", defaultValue: "400" }),
     reverse: fields.checkbox({ label: "Reverse", defaultValue: false }),
     colorScheme: fields.text({ label: "Color Scheme", defaultValue: "inherit" }),
     backgroundColor: fields.text({ label: "Background Color", defaultValue: "base" }),
@@ -119,6 +128,7 @@ const featureGridBlock = {
     colorScheme: fields.text({ label: "Color Scheme", defaultValue: "inherit" }),
     backgroundColor: fields.text({ label: "Background Color", defaultValue: "surface" }),
     alignmentHorizontal: fields.text({ label: "Alignment Horizontal", defaultValue: "center" }),
+    paddingVertical: fields.text({ label: "Padding Vertical", defaultValue: "4xl" }),
     features: fields.array(
       fields.object({
         title: fields.text({ label: "Title" }),
@@ -167,16 +177,18 @@ const featureSliderBlock = {
     subtext: fields.text({ label: "Subtext", multiline: true }),
     colorScheme: fields.text({ label: "Color Scheme", defaultValue: "inherit" }),
     backgroundColor: fields.text({ label: "Background Color", defaultValue: "base" }),
-    features: fields.array(
+    paddingVertical: fields.text({ label: "Padding Vertical", defaultValue: "4xl" }),
+    slides: fields.array(
       fields.object({
+        eyebrow: fields.text({ label: "Eyebrow" }),
         title: fields.text({ label: "Title" }),
         description: fields.text({ label: "Description", multiline: true }),
-        iconName: fields.text({ label: "Icon Name" }),
-        iconColor: fields.text({ label: "Icon Color" }),
+        imageSource: fields.text({ label: "Image Source" }),
+        imageAlt: fields.text({ label: "Image Alt" }),
       }),
       {
-        label: "Features",
-        itemLabel: (props) => props.fields.title.value || "Feature",
+        label: "Slides",
+        itemLabel: (props) => props.fields.title.value || "Slide",
       }
     ),
   }),
@@ -271,6 +283,7 @@ const ctaCenterBlock = {
     subtext: fields.text({ label: "Subtext", multiline: true }),
     colorScheme: fields.text({ label: "Color Scheme", defaultValue: "inherit" }),
     backgroundColor: fields.text({ label: "Background Color", defaultValue: "base" }),
+    paddingVertical: fields.text({ label: "Padding Vertical", defaultValue: "4xl" }),
     rounded: fields.checkbox({ label: "Rounded", defaultValue: true }),
     class: fields.text({ label: "Class", defaultValue: "wide" }),
     style: fields.text({ label: "Style" }),
@@ -290,6 +303,7 @@ const ctaSplitBlock = {
     subtext: fields.text({ label: "Subtext", multiline: true }),
     colorScheme: fields.text({ label: "Color Scheme", defaultValue: "inherit" }),
     backgroundColor: fields.text({ label: "Background Color", defaultValue: "base" }),
+    paddingVertical: fields.text({ label: "Padding Vertical", defaultValue: "4xl" }),
     buttonSections: fields.array(buttonSchema, {
       label: "Buttons",
       itemLabel: (props) => props.fields.text.value || "Button",
@@ -301,6 +315,7 @@ const customSectionBlock = {
   label: "Custom Section",
   schema: fields.object({
     _component: fields.text({ label: "Component", defaultValue: "page-sections/builders/custom-section" }),
+    id: fields.text({ label: "Section ID" }),
     sectionLabel: fields.text({ label: "Section Label" }),
     background: backgroundSchema,
     label: fields.text({ label: "Label" }),
@@ -309,7 +324,8 @@ const customSectionBlock = {
     paddingVertical: fields.text({ label: "Padding Vertical", defaultValue: "4xl" }),
     colorScheme: fields.text({ label: "Color Scheme", defaultValue: "inherit" }),
     backgroundColor: fields.text({ label: "Background Color" }),
-    blocks: fields.array(
+    rounded: fields.checkbox({ label: "Rounded", defaultValue: false }),
+    contentSections: fields.array(
       fields.object({
         _component: fields.text({ label: "Element Type" }),
         text: fields.text({ label: "Text", multiline: true }),
@@ -321,9 +337,26 @@ const customSectionBlock = {
         url: fields.text({ label: "URL" }),
         html: fields.text({ label: "HTML", multiline: true }),
         height: fields.text({ label: "Height" }),
+        iconName: fields.text({ label: "Icon Name" }),
+        iconPosition: fields.text({ label: "Icon Position" }),
+        navigationPosition: fields.text({ label: "Navigation Position" }),
+        aspectRatio: fields.text({ label: "Aspect Ratio" }),
+        items: fields.array(
+          fields.object({
+            title: fields.text({ label: "Title" }),
+            subtext: fields.text({ label: "Subtext" }),
+            iconName: fields.text({ label: "Icon Name" }),
+            iconColor: fields.text({ label: "Icon Color" }),
+            contentSections: fields.ignored(),
+          }),
+          {
+            label: "Items",
+            itemLabel: (props) => props.fields.title.value || "Item",
+          }
+        ),
       }),
       {
-        label: "Blocks",
+        label: "Content Sections",
         itemLabel: (props) => `${props.fields._component.value || "Element"}`,
       }
     ),
