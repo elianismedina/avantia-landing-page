@@ -20,3 +20,7 @@ env:
     secret: KEYSTATIC_SECRET
   - variable: PUBLIC_KEYSTATIC_PROJECT
     value: "avantia-landing-page/avantia-landing-page"
+  - variable: PUBLIC_CLOUDINARY_CLOUD_NAME
+    value: "dxa54qfxx"
+  - variable: PUBLIC_CLOUDINARY_UPLOAD_PRESET
+    value: "avantia-landing-page"
