@@ -183,7 +183,8 @@ export default defineConfig({
       ]), mdx(), react(), markdoc()],
   vite: {
     define: {
-      'process.env': {},
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+      'process.env.PUBLIC_KEYSTATIC_PROJECT': JSON.stringify(process.env.PUBLIC_KEYSTATIC_PROJECT || 'avantia-landing-page/avantia-landing-page'),
     },
     build: {
       minify: "esbuild",

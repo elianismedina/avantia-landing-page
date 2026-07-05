@@ -366,13 +366,13 @@ const customSectionBlock = {
 
 export default config({
   storage:
-    import.meta.env.DEV
+    process.env.NODE_ENV === "development"
       ? { kind: "local" }
       : {
           kind: "cloud",
         },
   cloud: {
-    project: import.meta.env.PUBLIC_KEYSTATIC_PROJECT || "avantia-landing-page/avantia-landing-page",
+    project: process.env.PUBLIC_KEYSTATIC_PROJECT || "avantia-landing-page/avantia-landing-page",
   },
   collections: {
     pages: collection({
