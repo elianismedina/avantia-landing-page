@@ -84,6 +84,7 @@ const heroSplitBlock = {
     subtext: fields.text({ label: "Subtext", multiline: true }),
     imageSource: cloudinaryImage({ label: "Image Source" }),
     imageAlt: fields.text({ label: "Image Alt" }),
+    videoSource: fields.text({ label: "Video Source (Optional)" }),
     imageAspectRatio: fields.text({ label: "Image Aspect Ratio", defaultValue: "square" }),
     fixedWidth: fields.text({ label: "Fixed Width", defaultValue: "400" }),
     reverse: fields.checkbox({ label: "Reverse", defaultValue: false }),

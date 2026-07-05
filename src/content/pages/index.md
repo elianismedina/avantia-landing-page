@@ -28,6 +28,7 @@ pageSections:
         ofertas ganadoras y evitar errores costosos.
       imageSource: /src/assets/images/component-docs/secop2image.png
       imageAlt: Licitaciones exitosas con Avantia
+      videoSource: https://res.cloudinary.com/dxa54qfxx/video/upload/v1783273666/avantia/nkyqyrg1uzsyrrtu04ui.mp4
       imageAspectRatio: square
       buttonSections:
         - _component: building-blocks/core-elements/button
