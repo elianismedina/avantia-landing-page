@@ -1,4 +1,5 @@
 ---
+title: Inicio
 description: >-
   Domina las licitaciones públicas y vende al Estado de forma exitosa. Cursos de
   contratación pública prácticos con expertos activos.
