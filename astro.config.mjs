@@ -182,6 +182,9 @@ export default defineConfig({
         }),
       ]), mdx(), react(), markdoc()],
   vite: {
+    define: {
+      'process.env': {},
+    },
     build: {
       minify: "esbuild",
     },

@@ -1,5 +1,6 @@
 import { collection, config, fields } from "@keystatic/core";
 import { block } from "@keystatic/core/content-components";
+import { cloudinaryImage } from "./src/components/keystatic/cloudinary-field";
 
 const buttonSchema = fields.object({
   _component: fields.text({ label: "Component", defaultValue: "building-blocks/core-elements/button" }),
@@ -60,7 +61,7 @@ const backgroundSchema = fields.object({
   positionVertical: fields.text({ label: "Position Vertical", defaultValue: "top" }),
   positionHorizontal: fields.text({ label: "Position Horizontal", defaultValue: "center" }),
   priority: fields.checkbox({ label: "Priority", defaultValue: false }),
-  imageSource: fields.text({ label: "Image Source" }),
+  imageSource: cloudinaryImage({ label: "Image Source" }),
   imageAlt: fields.text({ label: "Image Alt" }),
   videoSource: fields.text({ label: "Video Source" }),
   overlay: fields.number({ label: "Overlay", defaultValue: 0 }),
@@ -81,7 +82,7 @@ const heroSplitBlock = {
     eyebrow: fields.text({ label: "Eyebrow" }),
     heading: fields.text({ label: "Heading" }),
     subtext: fields.text({ label: "Subtext", multiline: true }),
-    imageSource: fields.text({ label: "Image Source" }),
+    imageSource: cloudinaryImage({ label: "Image Source" }),
     imageAlt: fields.text({ label: "Image Alt" }),
     imageAspectRatio: fields.text({ label: "Image Aspect Ratio", defaultValue: "square" }),
     fixedWidth: fields.text({ label: "Fixed Width", defaultValue: "400" }),
@@ -152,7 +153,7 @@ const featureSplitBlock = {
     eyebrow: fields.text({ label: "Eyebrow" }),
     heading: fields.text({ label: "Heading" }),
     subtext: fields.text({ label: "Subtext", multiline: true }),
-    imageSource: fields.text({ label: "Image Source" }),
+    imageSource: cloudinaryImage({ label: "Image Source" }),
     imageAlt: fields.text({ label: "Image Alt" }),
     imageAspectRatio: fields.text({ label: "Image Aspect Ratio", defaultValue: "video" }),
     imageRounded: fields.checkbox({ label: "Image Rounded", defaultValue: true }),
@@ -183,7 +184,7 @@ const featureSliderBlock = {
         eyebrow: fields.text({ label: "Eyebrow" }),
         title: fields.text({ label: "Title" }),
         description: fields.text({ label: "Description", multiline: true }),
-        imageSource: fields.text({ label: "Image Source" }),
+        imageSource: cloudinaryImage({ label: "Image Source" }),
         imageAlt: fields.text({ label: "Image Alt" }),
       }),
       {
@@ -242,7 +243,7 @@ const testimonialSectionBlock = {
     text: fields.text({ label: "Text", multiline: true }),
     authorName: fields.text({ label: "Author Name" }),
     authorDescription: fields.text({ label: "Author Description" }),
-    authorImage: fields.text({ label: "Author Image" }),
+    authorImage: cloudinaryImage({ label: "Author Image" }),
     alignmentHorizontal: fields.text({ label: "Alignment Horizontal", defaultValue: "center" }),
     maxContentWidth: fields.text({ label: "Max Content Width", defaultValue: "xl" }),
     paddingHorizontal: fields.text({ label: "Padding Horizontal", defaultValue: "xl" }),
@@ -261,7 +262,7 @@ const ctaFormBlock = {
     heading: fields.text({ label: "Heading" }),
     subtext: fields.text({ label: "Subtext", multiline: true }),
     formAction: fields.text({ label: "Form Action URL" }),
-    imageSource: fields.text({ label: "Image Source" }),
+    imageSource: cloudinaryImage({ label: "Image Source" }),
     imageAlt: fields.text({ label: "Image Alt" }),
     reverse: fields.checkbox({ label: "Reverse", defaultValue: false }),
     colorScheme: fields.text({ label: "Color Scheme", defaultValue: "dark" }),
@@ -365,13 +366,13 @@ const customSectionBlock = {
 
 export default config({
   storage:
-    process.env.NODE_ENV === "development"
+    import.meta.env.DEV
       ? { kind: "local" }
       : {
           kind: "cloud",
         },
   cloud: {
-    project: process.env.PUBLIC_KEYSTATIC_PROJECT || "avantia-landing-page/avantia-landing-page",
+    project: import.meta.env.PUBLIC_KEYSTATIC_PROJECT || "avantia-landing-page/avantia-landing-page",
   },
   collections: {
     pages: collection({
@@ -386,7 +387,7 @@ export default config({
           label: "Keywords",
           itemLabel: (props) => props.value,
         }),
-        image: fields.text({ label: "Image URL/Path" }),
+        image: cloudinaryImage({ label: "Image URL/Path" }),
         canonical: fields.text({ label: "Canonical" }),
         schemaData: fields.ignored(),
         pageSections: fields.blocks(
@@ -424,7 +425,7 @@ export default config({
         description: fields.text({ label: "Description", multiline: true }),
         date: fields.date({ label: "Published Date" }),
         author: fields.text({ label: "Author", defaultValue: "Anonymous" }),
-        image: fields.text({ label: "Image URL/Path" }),
+        image: cloudinaryImage({ label: "Image URL/Path" }),
         tags: fields.array(fields.text({ label: "Tag" }), {
           label: "Tags",
           itemLabel: (props) => props.value,
@@ -456,7 +457,7 @@ export default config({
                 text: fields.text({ label: "Text", multiline: true }),
                 authorName: fields.text({ label: "Author Name" }),
                 authorDescription: fields.text({ label: "Author Description" }),
-                authorImage: fields.text({ label: "Author Image" }),
+                authorImage: cloudinaryImage({ label: "Author Image" }),
                 class: fields.text({ label: "Class" }),
               },
             }),
