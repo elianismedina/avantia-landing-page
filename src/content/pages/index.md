@@ -1,9 +1,8 @@
 ---
-_schema: default
-title: Inicio
 description: >-
   Domina las licitaciones públicas y vende al Estado de forma exitosa. Cursos de
   contratación pública prácticos con expertos activos.
+keywords: []
 schemaData:
   - '@context': https://schema.org
     '@type': EducationalOrganization
@@ -20,6 +19,8 @@ pageSections:
   - discriminant: page-sections/heroes/hero-split
     value:
       _component: page-sections/heroes/hero-split
+      background:
+        priority: false
       eyebrow: Academia de Contratación Estatal
       heading: Domina las licitaciones públicas y haz crecer tu negocio
       subtext: >-
@@ -28,32 +29,33 @@ pageSections:
         ofertas ganadoras y evitar errores costosos.
       imageSource: /src/assets/images/component-docs/secop2image.png
       imageAlt: Licitaciones exitosas con Avantia
-      videoSource: https://res.cloudinary.com/dxa54qfxx/video/upload/v1783273666/avantia/nkyqyrg1uzsyrrtu04ui.mp4
+      videoSource: >-
+        https://res.cloudinary.com/dxa54qfxx/video/upload/v1783276810/avantia/aipxculdgolfgv8w35h2.mp4
       imageAspectRatio: square
-      buttonSections:
-        - _component: building-blocks/core-elements/button
-          text: Ver Programas
-          hideText: false
-          link: /personas/
-          iconName: ''
-          iconPosition: before
-          variant: primary
-          size: lg
-        - _component: building-blocks/core-elements/button
-          text: Asesoría Gratuita
-          hideText: false
-          link: '#contacto'
-          iconName: ''
-          iconPosition: before
-          variant: secondary
-          size: lg
       reverse: false
       colorScheme: inherit
       backgroundColor: base
       paddingVertical: 4xl
+      buttonSections:
+        - _component: building-blocks/core-elements/button
+          text: Ver Programas
+          link: /personas/
+          variant: primary
+          size: lg
+          iconPosition: before
+          hideText: false
+        - _component: building-blocks/core-elements/button
+          text: Asesoría Gratuita
+          link: '#contacto'
+          variant: secondary
+          size: lg
+          iconPosition: before
+          hideText: false
   - discriminant: page-sections/features/feature-grid
     value:
       _component: page-sections/features/feature-grid
+      background:
+        priority: false
       eyebrow: Nuestra Metodología
       heading: ¿Por qué capacitarte con Avantia?
       subtext: >-
@@ -62,6 +64,9 @@ pageSections:
       gap: xl
       minItemWidth: 280
       maxItemWidth: 360
+      colorScheme: inherit
+      backgroundColor: surface
+      alignmentHorizontal: center
       features:
         - title: Enfoque 100% Práctico
           description: >-
@@ -87,12 +92,11 @@ pageSections:
             a través de nuestro foro exclusivo de estudiantes.
           iconName: chat-bubble-left-right
           iconColor: purple
-      colorScheme: inherit
-      backgroundColor: surface
-      alignmentHorizontal: center
   - discriminant: page-sections/features/feature-split
     value:
       _component: page-sections/features/feature-split
+      background:
+        priority: false
       eyebrow: Programa Insignia
       heading: Curso Experto en Contratación Pública y Licitaciones
       subtext: >-
@@ -101,15 +105,6 @@ pageSections:
         estatales de principio a fin, cómo analizar pliegos de condiciones y
         cómo construir una oferta técnica y económica imbatible sin necesidad de
         ser abogado.
-      buttonSections:
-        - _component: building-blocks/core-elements/button
-          text: Ver Programas
-          hideText: false
-          link: /personas/
-          iconName: ''
-          iconPosition: before
-          variant: primary
-          size: md
       imageSource: /src/assets/images/component-docs/ProgramaInsigniaImage.png
       imageAlt: Curso de Licitaciones de Avantia
       imageAspectRatio: video
@@ -118,9 +113,19 @@ pageSections:
       colorScheme: inherit
       backgroundColor: base
       paddingVertical: lg
+      buttonSections:
+        - _component: building-blocks/core-elements/button
+          text: Ver Programas
+          link: /personas/
+          variant: primary
+          size: md
+          iconPosition: before
+          hideText: false
   - discriminant: page-sections/people/testimonial-section
     value:
       _component: page-sections/people/testimonial-section
+      background:
+        priority: false
       text: >-
         "Gracias a la metodología paso a paso de Avantia, logramos adjudicarnos
         nuestro primer contrato de servicios de tecnología con el Ministerio de
@@ -138,11 +143,18 @@ pageSections:
   - discriminant: page-sections/info-blocks/faq-section
     value:
       _component: page-sections/info-blocks/faq-section
+      background:
+        priority: false
       heading: Preguntas Frecuentes
       headingLevel: h2
       headingSize: lg
       singleOpen: true
       openFirst: false
+      maxContentWidth: xl
+      paddingHorizontal: xl
+      paddingVertical: 4xl
+      colorScheme: inherit
+      backgroundColor: none
       items:
         - title: ¿Necesito ser abogado para tomar los cursos?
           contentSections:
@@ -177,46 +189,61 @@ pageSections:
                 aprobación que avala las horas académicas y los conocimientos
                 adquiridos para tu currículum o perfil empresarial.
               size: md
-      maxContentWidth: xl
-      paddingHorizontal: xl
-      paddingVertical: 4xl
-      colorScheme: inherit
-      backgroundColor: none
   - discriminant: page-sections/ctas/cta-form
     value:
       _component: page-sections/ctas/cta-form
+      background:
+        priority: false
       id: contacto
       heading: Da el primer paso para venderle al Estado
       subtext: >-
         ¿Quieres saber cuál de nuestros programas se adapta mejor a tu tipo de
         negocio? Déjanos tus datos y un asesor se pondrá en contacto contigo.
       formAction: /api/contact
+      imageSource: /src/assets/images/component-docs/ContactanosImage.png
+      imageAlt: Contáctanos en Avantia
+      reverse: false
+      colorScheme: dark
+      backgroundColor: surface
+      paddingVertical: 4xl
       formBlocks:
         - _component: building-blocks/forms/input
           label: Nombre Completo
           name: nombre
           type: text
           required: true
+          options: []
+          hideText: false
+          disabled: false
         - _component: building-blocks/forms/input
           label: Correo Electrónico
           name: email
           type: email
           required: true
+          options: []
+          hideText: false
+          disabled: false
         - _component: building-blocks/forms/input
           label: Teléfono de Contacto
           name: telefono
           type: tel
           required: true
+          options: []
+          hideText: false
+          disabled: false
         - _component: building-blocks/forms/input
           label: Nombre de la Empresa
           name: empresa
           type: text
           required: true
+          options: []
+          hideText: false
+          disabled: false
         - _component: building-blocks/forms/select
           label: Sector Económico
           name: sector
-          placeholder: Selecciona tu sector
           required: true
+          placeholder: Selecciona tu sector
           options:
             - label: Comercio
               value: comercio
@@ -234,16 +261,21 @@ pageSections:
               value: construccion
             - label: Otro
               value: otro
+          hideText: false
+          disabled: false
         - _component: building-blocks/forms/input
           label: ¿Cuál es tu sector económico?
           name: sector_otro
           type: text
           required: false
+          options: []
+          hideText: false
+          disabled: false
         - _component: building-blocks/forms/select
           label: Personas a Capacitar
           name: personas_capacitar
-          placeholder: ¿Cuántas personas deseas capacitar?
           required: true
+          placeholder: ¿Cuántas personas deseas capacitar?
           options:
             - label: 1 persona (Solo yo)
               value: '1'
@@ -253,22 +285,24 @@ pageSections:
               value: 6-10
             - label: Más de 10 personas
               value: 10+
+          hideText: false
+          disabled: false
         - _component: building-blocks/forms/textarea
           label: Expectativas del curso
           name: expectativas
-          placeholder: ¿Qué esperas aprender o lograr con esta capacitación?
           required: true
+          placeholder: ¿Qué esperas aprender o lograr con esta capacitación?
+          options: []
+          hideText: false
+          disabled: false
         - _component: building-blocks/forms/submit
+          required: false
+          options: []
           text: Solicitar Información
           variant: primary
           size: md
           iconPosition: before
           hideText: false
           disabled: false
-      imageSource: /src/assets/images/component-docs/ContactanosImage.png
-      imageAlt: Contáctanos en Avantia
-      reverse: false
-      colorScheme: dark
-      backgroundColor: surface
-      paddingVertical: 4xl
+_schema: default
 ---
