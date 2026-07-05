@@ -156,6 +156,7 @@ const featureSplitBlock = {
     subtext: fields.text({ label: "Subtext", multiline: true }),
     imageSource: cloudinaryImage({ label: "Image Source" }),
     imageAlt: fields.text({ label: "Image Alt" }),
+    videoSource: fields.text({ label: "Video Source (Optional)" }),
     imageAspectRatio: fields.text({ label: "Image Aspect Ratio", defaultValue: "video" }),
     imageRounded: fields.checkbox({ label: "Image Rounded", defaultValue: true }),
     reverse: fields.checkbox({ label: "Reverse", defaultValue: false }),

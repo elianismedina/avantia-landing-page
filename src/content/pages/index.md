@@ -108,6 +108,8 @@ pageSections:
         ser abogado.
       imageSource: /src/assets/images/component-docs/ProgramaInsigniaImage.png
       imageAlt: Curso de Licitaciones de Avantia
+      videoSource: >-
+        https://res.cloudinary.com/dxa54qfxx/video/upload/v1783293848/avantia/uolkuutefrk3vg6juxe0.mp4
       imageAspectRatio: video
       imageRounded: true
       reverse: true

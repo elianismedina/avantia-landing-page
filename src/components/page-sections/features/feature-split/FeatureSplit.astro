@@ -14,6 +14,7 @@ const {
   buttonSections = [],
   imageSource = "",
   imageAlt = "",
+  videoSource = "",
   imageAspectRatio = "portrait",
   imageRounded = true,
   reverse = false,
@@ -83,21 +84,43 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
         data-children-prop="buttonSections"
       />
     </Fragment>
-    <Image
-      slot="second"
-      class:list={["feature-split-image", reverse && "reverse"]}
-      source={imageSource}
-      alt={imageAlt}
-      rounded={imageRounded}
-      aspectRatio={imageAspectRatio}
-      data-prop-src="imageSource"
-      data-prop-alt="imageAlt"
-    />
+    {
+      videoSource ? (
+        <video
+          slot="second"
+          class:list={[
+            "feature-split-image",
+            reverse && "reverse",
+            imageRounded && "rounded",
+          ]}
+          autoplay
+          muted
+          loop
+          playsinline
+          controls
+          style={`aspect-ratio: ${imageAspectRatio === 'video' ? '16/9' : imageAspectRatio === 'square' ? '1/1' : '16/9'}; width: 100%; border-radius: var(--radius-xl); overflow: hidden; display: block; box-shadow: var(--shadow-lg); object-fit: cover;`}
+          data-prop="videoSource"
+        >
+          <source src={videoSource} type="video/mp4" />
+        </video>
+      ) : (
+        <Image
+          slot="second"
+          class:list={["feature-split-image", reverse && "reverse"]}
+          source={imageSource}
+          alt={imageAlt}
+          rounded={imageRounded}
+          aspectRatio={imageAspectRatio}
+          data-prop-src="imageSource"
+          data-prop-alt="imageAlt"
+        />
+      )
+    }
   </Split>
 </CustomSection>
 
 {
-  imageAspectRatio == "portrait" && (
+  !videoSource && imageAspectRatio == "portrait" && (
     <style
       is:inline
       set:html={`
