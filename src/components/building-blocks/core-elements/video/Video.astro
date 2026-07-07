@@ -71,6 +71,7 @@ if (type === "local-source" && source) {
         loop
         playsinline
         poster={posterUrl}
+        crossorigin="anonymous"
       >
         {localVideoSources.map(({ src, type: sourceType }) => (
           <source
@@ -85,6 +86,7 @@ if (type === "local-source" && source) {
       preload="none"
       controls
       poster={posterUrl}
+      crossorigin="anonymous"
       class:list={["video", className]}
       {...htmlAttributes}
     >

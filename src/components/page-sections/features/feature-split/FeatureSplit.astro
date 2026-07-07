@@ -98,6 +98,7 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
           loop
           playsinline
           controls
+          crossorigin="anonymous"
           style={`aspect-ratio: ${imageAspectRatio === 'video' ? '16/9' : imageAspectRatio === 'square' ? '1/1' : '16/9'}; width: 100%; border-radius: var(--radius-xl); overflow: hidden; display: block; box-shadow: var(--shadow-lg); object-fit: cover;`}
           data-prop="videoSource"
         >

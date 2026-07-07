@@ -54,6 +54,7 @@ if (!_component && !hasVideo) return;
         <video
           preload="none"
           controls
+          crossorigin="anonymous"
           class="video-modal-player"
         >
           {localVideoSources.map(({ src, type: sourceType }) => (
