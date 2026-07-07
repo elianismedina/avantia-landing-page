@@ -116,6 +116,7 @@ if (hasAlternate) {
             loading={priority ? "eager" : "lazy"}
             decoding={priority ? "sync" : "async"}
             fetchpriority={priority ? "high" : undefined}
+            crossorigin="anonymous"
             {...attrs}
           />
         ) : (
@@ -128,6 +129,7 @@ if (hasAlternate) {
               fetchpriority={priority ? "high" : undefined}
               width={prepared.imageWidth}
               height={prepared.imageHeight}
+              crossorigin="anonymous"
               {...attrs}
             />
           </picture>
