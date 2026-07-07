@@ -50,7 +50,7 @@ export default defineConfig({
     : {
         adapter: customAppHostingAdapter,
       }),
-  site: "https://www.avantia.com.co",
+  site: "https://avantia.com.co",
   redirects: {
     "/contactanos": "/#contacto",
     "/favicon.ico": "/favicon.svg",
