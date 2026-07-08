@@ -32,12 +32,89 @@
       opacity: 1;
     }
   }
+
+  /* Viewport Reveal Animation Utilities */
+  .reveal {
+    opacity: 0;
+    transition-duration: var(--animation-reveal, 800ms);
+    transition-property: opacity, transform;
+    transition-timing-function: var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
+    will-change: opacity, transform;
+  }
+
+  .reveal-fade {
+    opacity: 0;
+  }
+
+  .reveal-slide-up {
+    transform: translateY(3rem);
+  }
+
+  .reveal-slide-down {
+    transform: translateY(-3rem);
+  }
+
+  .reveal-slide-left {
+    transform: translateX(3rem);
+  }
+
+  .reveal-slide-right {
+    transform: translateX(-3rem);
+  }
+
+  .reveal-zoom-in {
+    transform: scale(0.92);
+  }
+
+  .reveal-zoom-out {
+    transform: scale(1.08);
+  }
+
+  /* Active state triggered by JS IntersectionObserver */
+  .reveal.is-visible,
+  .reveal.animate-now {
+    opacity: 1;
+    transform: translate(0) scale(1);
+  }
+
+  /* Reveal child animations when their parent section is active/visible */
+  .reveal.is-visible .reveal,
+  .reveal.animate-now .reveal {
+    opacity: 1;
+    transform: translate(0) scale(1);
+  }
+
+  /* Stagger Delays */
+  .delay-50  { transition-delay: 50ms; }
+  .delay-100 { transition-delay: 100ms; }
+  .delay-150 { transition-delay: 150ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-250 { transition-delay: 250ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-350 { transition-delay: 350ms; }
+  .delay-400 { transition-delay: 400ms; }
+  .delay-450 { transition-delay: 450ms; }
+  .delay-500 { transition-delay: 500ms; }
+  .delay-600 { transition-delay: 600ms; }
+  .delay-700 { transition-delay: 700ms; }
+  .delay-800 { transition-delay: 800ms; }
+
+  /* Dynamic CSS variable support for complex staggers */
+  [style*="--delay"] {
+    transition-delay: var(--delay) !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
     scroll-behavior: auto !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
     transition: none !important;
   }
 }

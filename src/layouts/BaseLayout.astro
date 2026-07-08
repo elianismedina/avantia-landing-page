@@ -103,5 +103,41 @@ const props = Astro.props;
       <slot />
     </div>
     <VideoElements />
+
+    <script>
+      import { onPageLoad } from "@component-utils/onPageLoad";
+
+      function initScrollReveal() {
+        const revealElements = document.querySelectorAll(".reveal:not(.reveal .reveal)");
+        if (revealElements.length === 0) return;
+
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px 0px -10% 0px", // Triggers when element is 10% inside viewport from the bottom
+          threshold: 0.05,
+        };
+
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const target = entry.target as HTMLElement;
+              target.classList.add("is-visible");
+              obs.unobserve(target); // Only animate once
+            }
+          });
+        }, observerOptions);
+
+        revealElements.forEach((el) => {
+          // If it's already in viewport or has .animate-now class, show it immediately
+          if (el.classList.contains("animate-now")) {
+            el.classList.add("is-visible");
+          } else {
+            observer.observe(el);
+          }
+        });
+      }
+
+      onPageLoad(initScrollReveal);
+    </script>
   </body>
 </html>

@@ -192,7 +192,8 @@ const usesAfterContentSections = !hasAfterSlot && showBeforeAfter && afterConten
 
       > a.card-inner:hover,
       > button.card-inner:hover {
-        transform: scale(1.05);
+        transform: translateY(-6px) scale(1.01);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
       }
 
       > button.card-inner {
@@ -213,8 +214,8 @@ const usesAfterContentSections = !hasAfterSlot && showBeforeAfter && afterConten
         position: relative;
         text-decoration: none;
         transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease;
+          transform var(--animation-normal) var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1)),
+          box-shadow var(--animation-normal) var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
 
         &.rounded {
           border-radius: var(--radius-md);

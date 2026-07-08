@@ -38,7 +38,7 @@ const {
 >
   <SimpleText
     alignmentHorizontal="center"
-    class="eyebrow"
+    class:list={["eyebrow", "reveal", "reveal-slide-up", "delay-100"]}
     data-prop="eyebrow"
     text={eyebrow}
   />
@@ -46,18 +46,19 @@ const {
     level="h1"
     size="2xl"
     alignmentHorizontal="center"
+    class="reveal reveal-slide-up delay-200"
     data-prop="heading"
   >
     {heading}
   </Heading>
   <Text
     alignmentHorizontal="center"
-    class="subtext"
+    class:list={["subtext", "reveal", "reveal-slide-up", "delay-300"]}
     data-prop="subtext"
     text={subtext}
   />
   <ButtonGroup
-    class="buttonSections"
+    class:list={["buttonSections", "reveal", "reveal-slide-up", "delay-400"]}
     buttonSections={buttonSections}
     alignmentHorizontal="center"
     data-children-prop="buttonSections"

@@ -2,6 +2,21 @@
 import Icon from "@core-elements/icon/Icon.astro";
 import { itemHasSplitNavLink } from "@component-utils/navSplitLink";
 
+interface NavigationItem {
+  name: string;
+  path?: string;
+  children?: NavigationItem[];
+  [key: string]: any;
+}
+
+interface Props {
+  navData?: NavigationItem[];
+  class?: string;
+  useDefaultEditableBinding?: boolean;
+  _component?: string;
+  [key: string]: any;
+}
+
 const {
   navData = [],
   class: className,
@@ -12,17 +27,17 @@ const {
 
 const navInstanceId = crypto.randomUUID();
 
-function isCurrentPage(item) {
+function isCurrentPage(item: NavigationItem): boolean {
   return Boolean(item.path && Astro.url.pathname === item.path);
 }
 
-function hasCurrentChild(item) {
+function hasCurrentChild(item: NavigationItem): boolean {
   if (isCurrentPage(item)) return true;
   return Boolean(item.children?.some((child) => hasCurrentChild(child)));
 }
 
 // Helper function to create navigation item data
-function createNavItemData(item, level, parentGroupId) {
+function createNavItemData(item: NavigationItem, level: "top" | "child", parentGroupId?: string) {
   const hasChildren = Boolean(item.children?.length);
 
   return {
@@ -122,6 +137,7 @@ function createNavItemData(item, level, parentGroupId) {
               role="region"
               aria-label={`${itemData.name} submenu`}
               aria-hidden="true"
+              inert
             >
               <ul class="nav-list">
                 {itemData.children!.map((child) => {
@@ -200,6 +216,7 @@ function createNavItemData(item, level, parentGroupId) {
                         role="region"
                         aria-label={`${childData.name} submenu`}
                         aria-hidden="true"
+                        inert
                       >
                         <ul class="nav-list">
                           {childData.children!.map((grandChild) => {
@@ -239,7 +256,7 @@ function createNavItemData(item, level, parentGroupId) {
 
   let barGlobalHandlersBound = false;
 
-  function updateAriaStates(toggle, isExpanded) {
+  function updateAriaStates(toggle: Element, isExpanded: boolean) {
     const contentId = toggle.getAttribute("aria-controls");
     const content = document.getElementById(contentId || "");
     const triggerId = toggle.getAttribute("id");
@@ -254,8 +271,27 @@ function createNavItemData(item, level, parentGroupId) {
 
     if (content) {
       content.setAttribute("aria-hidden", (!isExpanded).toString());
+      if (!isExpanded) {
+        content.setAttribute("inert", "");
+        // If focus was inside this content when closing, restore it to trigger
+        if (content.contains(document.activeElement)) {
+          if (toggleBtn) {
+            (toggleBtn as HTMLElement).focus();
+          } else if (fullTrigger) {
+            (fullTrigger as HTMLElement).focus();
+          }
+        }
+      } else {
+        content.removeAttribute("inert");
+      }
+
       content.querySelectorAll(".nav-item-nested").forEach((nested) => {
         nested.setAttribute("aria-hidden", (!isExpanded).toString());
+        if (!isExpanded) {
+          nested.setAttribute("inert", "");
+        } else {
+          nested.removeAttribute("inert");
+        }
       });
     }
 
@@ -268,7 +304,7 @@ function createNavItemData(item, level, parentGroupId) {
   }
 
   // Handle toggle change events
-  function handleToggleChange(e) {
+  function handleToggleChange(e: Event) {
     const target = e.target as HTMLInputElement;
 
     // Only handle checkboxes closing other checkboxes
@@ -294,7 +330,7 @@ function createNavItemData(item, level, parentGroupId) {
   }
 
   // Handle trigger click events
-  function handleTriggerClick(e) {
+  function handleTriggerClick(e: Event) {
     const label = e.currentTarget as HTMLElement;
     const toggle = document.getElementById(label.getAttribute("for") || "") as HTMLInputElement;
 
@@ -306,12 +342,12 @@ function createNavItemData(item, level, parentGroupId) {
   }
 
   // Handle keyboard events
-  function handleKeydown(e) {
+  function handleKeydown(e: KeyboardEvent) {
     if (e.key !== "Enter" && e.key !== " ") return;
 
     e.preventDefault();
-    const label = e.currentTarget;
-    const toggle = document.getElementById(label.getAttribute("for") || "");
+    const label = e.currentTarget as HTMLElement;
+    const toggle = document.getElementById(label.getAttribute("for") || "") as HTMLInputElement;
 
     if (toggle) {
       toggle.checked = !toggle.checked;
@@ -345,9 +381,10 @@ function createNavItemData(item, level, parentGroupId) {
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
           document.querySelectorAll(".bar .nav-item-toggle").forEach((toggle) => {
-            if (toggle.checked) {
-              toggle.checked = false;
-              updateAriaStates(toggle, false);
+            const checkbox = toggle as HTMLInputElement;
+            if (checkbox.checked) {
+              checkbox.checked = false;
+              updateAriaStates(checkbox, false);
             }
           });
         }
@@ -363,17 +400,20 @@ function createNavItemData(item, level, parentGroupId) {
       navElement.dataset.barInitialized = "true";
 
       barNav.querySelectorAll(".nav-item-toggle").forEach((toggle) => {
-        const isChecked = toggle.checked;
-        updateAriaStates(toggle, isChecked);
-        toggle.addEventListener("change", handleToggleChange);
+        const checkbox = toggle as HTMLInputElement;
+        const isChecked = checkbox.checked;
+        updateAriaStates(checkbox, isChecked);
+        checkbox.addEventListener("change", handleToggleChange);
       });
 
-      barNav.querySelectorAll(".nav-item-toggle-btn").forEach((trigger) => {
+      barNav.querySelectorAll(".nav-item-toggle-btn").forEach((el) => {
+        const trigger = el as HTMLElement;
         trigger.addEventListener("click", handleTriggerClick);
         trigger.addEventListener("keydown", handleKeydown);
       });
 
-      barNav.querySelectorAll(".nav-item.has-children > .nav-item-trigger").forEach((trigger) => {
+      barNav.querySelectorAll(".nav-item.has-children > .nav-item-trigger").forEach((el) => {
+        const trigger = el as HTMLElement;
         trigger.addEventListener("click", handleTriggerClick);
         trigger.addEventListener("keydown", handleKeydown);
       });

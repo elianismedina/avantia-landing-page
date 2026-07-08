@@ -19,6 +19,7 @@ const {
   class: className,
   _component,
   "data-children-prop": childrenDataProp,
+  disableAnimation = false,
   ...htmlAttributes
 } = Astro.props;
 
@@ -44,10 +45,18 @@ const arrayDataAttributes =
   effectiveChildrenProp && hasContentSections
     ? { "data-editable": "array", "data-prop": effectiveChildrenProp }
     : {};
+
+// Detect if this is a hero section (above-the-fold, animated immediately on load)
+const isHero =
+  (typeof className === "string" && (className.includes("hero") || className.includes("above-the-fold"))) ||
+  (typeof _component === "string" && _component.includes("hero"));
+const animationClasses = disableAnimation
+  ? []
+  : ["reveal", isHero ? "animate-now" : "reveal-slide-up"];
 ---
 
 <section
-  class:list={["custom-section", className]}
+  class:list={["custom-section", className, ...animationClasses]}
   {...htmlAttributes}
 >
   <div

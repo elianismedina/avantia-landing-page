@@ -55,23 +55,24 @@ const {
   >
     <Fragment slot="first">
       <SimpleText
-        class="eyebrow"
+        class:list={["eyebrow", "reveal", "reveal-slide-up", "delay-100"]}
         data-prop="eyebrow"
         text={eyebrow}
       />
       <Heading
         level="h1"
         size="2xl"
+        class="reveal reveal-slide-up delay-200"
         data-prop="heading"
         >{heading}</Heading
       >
       <Text
-        class="subtext"
+        class:list={["subtext", "reveal", "reveal-slide-up", "delay-300"]}
         data-prop="subtext"
         text={subtext}
       />
       <ButtonGroup
-        class="buttons-container"
+        class:list={["buttons-container", "reveal", "reveal-slide-up", "delay-400"]}
         buttonSections={buttonSections}
         data-children-prop="buttonSections"
       />
@@ -86,7 +87,7 @@ const {
             playsinline
             controls
             crossorigin="anonymous"
-            class="hero-video"
+            class="hero-video reveal reveal-zoom-in delay-300"
             style="width: 100%; border-radius: var(--radius-xl); overflow: hidden; display: block; box-shadow: var(--shadow-lg);"
             data-prop="videoSource"
           >
@@ -101,6 +102,7 @@ const {
             data-prop-src="imageSource"
             data-prop-alt="imageAlt"
             priority={true}
+            class="reveal reveal-zoom-in delay-300"
           />
         )
       }
