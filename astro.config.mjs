@@ -22,7 +22,7 @@ const { createConfigPlugin } = require(pluginPath);
 
 const isTest = typeof process !== "undefined" && !!process.env.VITEST;
 
-const customAppHostingAdapter = (() => {
+const customAppHostingAdapter = !isTest ? (() => {
   const integration = node({
     mode: "standalone",
   });
@@ -41,7 +41,7 @@ const customAppHostingAdapter = (() => {
     originalConfigDone(params);
   };
   return integration;
-})();
+})() : null;
 
 // https://astro.build/config
 export default defineConfig({
