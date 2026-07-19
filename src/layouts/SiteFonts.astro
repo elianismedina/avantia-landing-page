@@ -5,6 +5,6 @@ import { Font } from "astro:assets";
 
 {
   siteFonts.map((entry) => (
-    <Font cssVariable={entry.cssVariable as "--font-body" | "--font-headings"} />
+    <Font cssVariable={entry.cssVariable as "--font-body" | "--font-headings"} preload />
   ))
 }
