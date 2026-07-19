@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://avantia.com.co/sitemap-index.xml
