@@ -12,19 +12,20 @@ import { fontProviders } from "astro/config";
 
 export const siteFonts = [
   {
-    name: "Merriweather Sans",
+    name: "Inter",
     cssVariable: "--font-body",
-    provider: fontProviders.google(),
-    weights: ["300 800"],
+    provider: fontProviders.fontsource(),
+    weights: ["300", "400", "500", "600", "700", "800", "900"],
     styles: ["normal"],
     subsets: ["latin"],
   },
   {
-    name: "Merriweather",
+    name: "Raleway",
     cssVariable: "--font-headings",
-    provider: fontProviders.google(),
-    weights: ["300 900"],
+    provider: fontProviders.fontsource(),
+    weights: ["300", "400", "500", "600", "700", "800", "900"],
     styles: ["normal"],
     subsets: ["latin"],
   },
 ];
+
